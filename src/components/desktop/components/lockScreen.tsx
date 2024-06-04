@@ -6,6 +6,19 @@ import { useLockScreenStore } from '@/stores/lockscreen';
 export const LockScreen = () => {
   const lockScreen = useLockScreenStore();
 
+  const closeLockScreen = () => lockScreen.setShouldClose(true);
+
+  function handleKeyDown(ev: React.KeyboardEvent<HTMLButtonElement>) {
+    switch (ev.key) {
+      case 'Enter':
+        closeLockScreen();
+        break;
+
+      default:
+        break;
+    }
+  }
+
   return (
     <AnimatePresence>
       {!lockScreen.shouldClose && (
@@ -32,8 +45,10 @@ export const LockScreen = () => {
             <div className="flex items-center justify-between gap-2 rounded-md border-2 border-pine bg-surface px-2 py-1 font-semibold text-text">
               ***************
               <button
-                onClick={() => lockScreen.setShouldClose(true)}
-                className="rounded-full p-1 opacity-80 transition-colors hover:bg-red-900/40 active:bg-rose"
+                autoFocus
+                onClick={closeLockScreen}
+                onKeyDown={handleKeyDown}
+                className="rounded-full p-1 opacity-80 outline-none transition-colors focus-within:bg-red-900/60 active:bg-rose"
               >
                 <ArrowRight size={20} weight="bold" />
               </button>
