@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      transitionProperty: {
+        size: 'min-width, min-height',
+      },
       colors: {
         base: 'var(--base)',
         surface: 'var(--surface)',
