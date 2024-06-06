@@ -17,6 +17,9 @@ importers:
       framer-motion:
         specifier: ^7.10.3
         version: 7.10.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nanoid:
+        specifier: ^5.0.7
+        version: 5.0.7
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -44,16 +47,16 @@ importers:
         version: 0.1.2
       '@astrojs/tailwind':
         specifier: ^5.0.3
-        version: 5.0.3(astro@4.0.2(@types/node@20.5.1)(typescript@5.4.5))(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+        version: 5.0.3(astro@4.0.2(@types/node@20.5.1)(typescript@5.4.5))(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
       '@jridgewell/sourcemap-codec':
         specifier: ^1.4.15
         version: 1.4.15
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
+        version: 0.4.2(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
       '@tailwindcss/typography':
         specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
+        version: 0.5.10(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
       '@types/react':
         specifier: ^18.2.42
         version: 18.2.42
@@ -103,8 +106,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(eslint@8.57.0)
       eslint-plugin-tailwindcss:
-        specifier: ^3.13.0
-        version: 3.13.0(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
+        specifier: ^3.17.3
+        version: 3.17.3(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))
       eslint-plugin-unused-imports:
         specifier: ^2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
@@ -127,8 +130,8 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5
       tailwindcss:
-        specifier: ^3.3.6
-        version: 3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+        specifier: ^3.4.4
+        version: 3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
 
 packages:
 
@@ -856,6 +859,9 @@ packages:
 
   '@types/react@18.2.42':
     resolution: {integrity: sha512-c1zEr96MjakLYus/wPnuWDo1/zErfdU9rNsIGmE+NV71nx88FG9Ttgo5dqorXTu/LImX2f63WBP986gJkMPNbA==}
+
+  '@types/react@18.3.3':
+    resolution: {integrity: sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==}
 
   '@types/scheduler@0.23.0':
     resolution: {integrity: sha512-YIoDCTH3Af6XM5VuwGG/QL/CJqga1Zm3NkU3HZ4ZHK2fRMPYP1VczsTUqtsf43PH/iJNVlPHAo2oWX7BSdB2Hw==}
@@ -1742,11 +1748,11 @@ packages:
     peerDependencies:
       eslint: '>=5.0.0'
 
-  eslint-plugin-tailwindcss@3.13.0:
-    resolution: {integrity: sha512-Fcep4KDRLWaK3KmkQbdyKHG0P4GdXFmXdDaweTIPcgOP60OOuWFbh1++dufRT28Q4zpKTKaHwTsXPJ4O/EjU2Q==}
-    engines: {node: '>=12.13.0'}
+  eslint-plugin-tailwindcss@3.17.3:
+    resolution: {integrity: sha512-DVMVVUFQ+lPraRSuUk2I41XMnusXT6b3WaQZYlUHduULnERaqe9sNfmpRY1IyxlzmKoQxSbZ8IHRhl9ePo8PeA==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
-      tailwindcss: ^3.3.2
+      tailwindcss: ^3.4.0
 
   eslint-plugin-unused-imports@2.0.0:
     resolution: {integrity: sha512-3APeS/tQlTrFa167ThtP0Zm0vctjr4M44HMpeg1P4bK6wItarumq0Ma82xorMKdFsWpphQBlRPzw/pxiVELX1A==}
@@ -2645,6 +2651,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@5.0.7:
+    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+
   napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
 
@@ -3405,8 +3416,8 @@ packages:
   tailwind-merge@2.3.0:
     resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
 
-  tailwindcss@3.3.6:
-    resolution: {integrity: sha512-AKjF7qbbLvLaPieoKeTjG1+FyNZT6KaJMJPFeQyLfIp7l82ggH1fbHJSsYIvnbTFQOlkh+gBYpyby5GT1LIdLw==}
+  tailwindcss@3.4.4:
+    resolution: {integrity: sha512-ZoyXOdJjISB7/BcLTR6SEsLgKtDStYyYZVLsUtWChO4Ps20CBad7lfJKVDiejocV4ME1hLmyY0WJE3hSDcmQ2A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3846,13 +3857,13 @@ snapshots:
 
   '@astrojs/sitemap@0.1.2': {}
 
-  '@astrojs/tailwind@5.0.3(astro@4.0.2(@types/node@20.5.1)(typescript@5.4.5))(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))':
+  '@astrojs/tailwind@5.0.3(astro@4.0.2(@types/node@20.5.1)(typescript@5.4.5))(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))':
     dependencies:
       astro: 4.0.2(@types/node@20.5.1)(typescript@5.4.5)
       autoprefixer: 10.4.19(postcss@8.4.38)
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
-      tailwindcss: 3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+      tailwindcss: 3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
     transitivePeerDependencies:
       - ts-node
 
@@ -4363,17 +4374,17 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
 
-  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))':
+  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))':
     dependencies:
-      tailwindcss: 3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+      tailwindcss: 3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
 
-  '@tailwindcss/typography@0.5.10(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))':
+  '@tailwindcss/typography@0.5.10(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+      tailwindcss: 3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
 
   '@tsconfig/node10@1.0.11':
     optional: true
@@ -4439,12 +4450,17 @@ snapshots:
 
   '@types/react-dom@18.3.0':
     dependencies:
-      '@types/react': 18.2.42
+      '@types/react': 18.3.3
 
   '@types/react@18.2.42':
     dependencies:
       '@types/prop-types': 15.7.12
       '@types/scheduler': 0.23.0
+      csstype: 3.1.3
+
+  '@types/react@18.3.3':
+    dependencies:
+      '@types/prop-types': 15.7.12
       csstype: 3.1.3
 
   '@types/scheduler@0.23.0': {}
@@ -5533,11 +5549,11 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-  eslint-plugin-tailwindcss@3.13.0(tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))):
+  eslint-plugin-tailwindcss@3.17.3(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))):
     dependencies:
       fast-glob: 3.3.2
       postcss: 8.4.38
-      tailwindcss: 3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
+      tailwindcss: 3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5))
 
   eslint-plugin-unused-imports@2.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0):
     dependencies:
@@ -6669,6 +6685,8 @@ snapshots:
 
   nanoid@3.3.7: {}
 
+  nanoid@5.0.7: {}
+
   napi-build-utils@1.0.2:
     optional: true
 
@@ -7528,7 +7546,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.6
 
-  tailwindcss@3.3.6(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)):
+  tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.4.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2

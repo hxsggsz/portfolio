@@ -1,15 +1,24 @@
 import { Browser, Browsers, Minus, X } from '@phosphor-icons/react';
+import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 
+import { useWindowManagerStore } from '@/stores/windowManager';
 import { cn } from '@/utils/cn';
 
-export const Window = () => {
+interface WindowProps {
+  id: string;
+  name: string;
+}
+
+export const Window = (props: WindowProps) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const windowManager = useWindowManagerStore();
 
   const rndRef = useRef<Rnd | null>(null);
   const positionRef = useRef<{ x: number; y: number }>({
-    x: window.innerWidth / 4,
+    x: window.innerWidth / 6,
     y: window.innerHeight / 6,
   });
 
@@ -31,36 +40,56 @@ export const Window = () => {
   };
 
   return (
-    <Rnd
-      ref={rndRef}
-      bounds="body"
-      default={{
-        ...positionRef.current,
-        width: 'auto',
-        height: 'auto',
-      }}
-      dragHandleClassName="handle"
-      className={cn(
-        'flex transition-size absolute left-1/2 top-1/2 z-20 min-h-[400px] min-w-[50%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-md border border-iris bg-highlightLow shadow-xl',
-        isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]'
-      )}
+    <motion.div
+      initial={{ scale: 0.6, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.6, opacity: 0 }}
+      transition={{ duration: 0.1, type: 'tween' }}
     >
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname -- need to pass handle class for drag */}
-      <header className="handle flex w-full cursor-move touch-none justify-end gap-1 border border-iris bg-iris px-2 py-1 text-text">
-        <button className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-pine">
-          <Minus size={20} />
-        </button>
-        <button
-          onClick={() => updateFullScreen(!isFullScreen)}
-          className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-gold"
-        >
-          {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
-        </button>
-        <button className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-love">
-          <X size={20} />
-        </button>
-      </header>
-      <h1>window</h1>
-    </Rnd>
+      <Rnd
+        ref={rndRef}
+        bounds="body"
+        default={{
+          ...positionRef.current,
+          width: 'auto',
+          height: 'auto',
+        }}
+        dragHandleClassName="handle"
+        className={cn(
+          'flex transition-size relative z-20 min-h-[400px] min-w-[50%] overflow-hidden rounded-md border border-iris bg-highlightLow shadow-xl',
+          isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]'
+        )}
+      >
+        {/* eslint-disable-next-line tailwindcss/no-custom-classname -- need to pass handle class for drag */}
+        <header className="handle flex w-full cursor-move touch-none justify-between gap-1 border border-iris bg-iris px-2 py-1 text-text">
+          <p>{props.name}</p>
+
+          <div className="flex gap-2">
+            <button
+              onClick={() => windowManager.minimizeWindow(props.id)}
+              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-pine"
+            >
+              <Minus size={20} />
+            </button>
+
+            <button
+              onClick={() => updateFullScreen(!isFullScreen)}
+              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-gold"
+            >
+              {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
+            </button>
+
+            <button
+              onClick={() => windowManager.toggleWindow(props.id)}
+              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-love"
+            >
+              <X size={20} />
+            </button>
+          </div>
+        </header>
+
+        <h1>window</h1>
+      </Rnd>
+    </motion.div>
   );
 };

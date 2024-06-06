@@ -1,13 +1,8 @@
 ---
 import { Desktop } from '@/components/desktop';
-import { LockScreen } from '@/components/desktop/components/lockScreen';
-import { Topbar } from '@/components/desktop/components/topbar';
 import Base from '@/layouts/Base.astro';
 ---
 
 <Base title='hxsggsz - Home'>
-  <Desktop>
-    <LockScreen client:only='react' />
-    <Topbar client:only='react' />
-  </Desktop>
+  <Desktop client:only='react' />
 </Base>
