@@ -67,28 +67,30 @@ export const Window = (props: WindowProps) => {
           <div className="flex gap-2">
             <button
               onClick={() => windowManager.minimizeWindow(props.id)}
-              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-pine"
+              className="rounded-md p-0.5 transition-colors hover:bg-pine active:bg-white/60"
             >
               <Minus size={20} />
             </button>
 
             <button
               onClick={() => updateFullScreen(!isFullScreen)}
-              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-gold"
+              className="rounded-md p-0.5 transition-colors hover:bg-gold active:bg-white/60"
             >
               {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
             </button>
 
             <button
               onClick={() => windowManager.toggleWindow(props.id)}
-              className="rounded-md p-0.5 transition-colors hover:bg-white/60 active:bg-love"
+              className="rounded-md p-0.5 transition-colors hover:bg-love active:bg-white/60"
             >
               <X size={20} />
             </button>
           </div>
         </header>
 
-        <h1>window</h1>
+        <div className="p-2">
+          <h1>window</h1>
+        </div>
       </Rnd>
     </motion.div>
   );
