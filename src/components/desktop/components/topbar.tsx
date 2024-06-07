@@ -23,7 +23,7 @@ export const Topbar = () => {
           transition={{ type: 'tween', delay: 0.4 }}
           className="flex w-full justify-center"
         >
-          <div className="mt-4 flex gap-4 rounded-full border border-highlightLow bg-overlay px-6 py-4 text-text backdrop-blur-sm">
+          <div className="mt-4 flex gap-4 rounded-full border-2 border-highlightLow bg-highlightHigh/60 px-6 py-4 text-text backdrop-blur-sm">
             <div className="flex items-center gap-2">
               <SpeakerHigh size={20} />
               <WifiHigh size={20} />

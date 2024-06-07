@@ -9,13 +9,8 @@ export const LockScreen = () => {
   const closeLockScreen = () => lockScreen.setShouldClose(true);
 
   function handleKeyDown(ev: React.KeyboardEvent<HTMLButtonElement>) {
-    switch (ev.key) {
-      case 'Enter':
-        closeLockScreen();
-        break;
-
-      default:
-        break;
+    if (ev.key === 'Enter') {
+      closeLockScreen();
     }
   }
 
@@ -26,7 +21,7 @@ export const LockScreen = () => {
           initial={{ opacity: 0, y: -400 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -400 }}
-          transition={{ type: 'tween' }}
+          transition={{ type: 'tween', duration: 0.4 }}
           className="absolute left-0 top-0 flex h-screen w-screen items-center justify-center overflow-hidden backdrop-blur-sm"
         >
           <div>
@@ -48,7 +43,7 @@ export const LockScreen = () => {
                 autoFocus
                 onClick={closeLockScreen}
                 onKeyDown={handleKeyDown}
-                className="rounded-full p-1 opacity-80 outline-none transition-colors focus-within:bg-red-900/60 active:bg-rose"
+                className="rounded-full p-1 opacity-80 outline-none transition-colors focus-within:bg-rose/80 active:bg-rose"
               >
                 <ArrowRight size={20} weight="bold" />
               </button>

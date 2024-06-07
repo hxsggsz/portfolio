@@ -4,7 +4,6 @@ import wallpapperLight from '@/assets/images/wallpapper-light.png';
 import { useWindowManagerStore } from '@/stores/windowManager';
 
 import { BottonBar } from './components/bottomBar';
-import { LockScreen } from './components/lockScreen';
 import { Topbar } from './components/topbar';
 import { Window } from './components/window';
 
@@ -29,7 +28,6 @@ export const Desktop = () => {
     >
       <Topbar />
       <AnimatePresence>{renderWindows()}</AnimatePresence>
-      <LockScreen />
       <BottonBar />
     </main>
   );
