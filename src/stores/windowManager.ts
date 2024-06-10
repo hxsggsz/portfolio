@@ -1,20 +1,13 @@
 import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 
-import config from '@/assets/images/config.png';
+import settings from '@/assets/images/config.png';
+import type { WindowTypes } from '@/types/windows';
 
 interface WindowManagerStoreTypes {
   windows: WindowTypes[];
   toggleWindow: (windowId: string, open?: boolean) => void;
   minimizeWindow: (windowId: string, minimized?: boolean) => void;
-}
-
-interface WindowTypes {
-  id: string;
-  name: string;
-  image: string;
-  isOpen: boolean;
-  isMinimized: boolean;
 }
 
 export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
@@ -24,8 +17,8 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
         id: nanoid(),
         isOpen: false,
         isMinimized: false,
-        name: 'config',
-        image: config.src,
+        name: 'Settings' as const,
+        image: settings.src,
       },
     ],
 
