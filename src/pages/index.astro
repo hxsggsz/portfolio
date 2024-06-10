@@ -1,10 +1,7 @@
 ---
-import { Desktop } from '@/components/desktop';
-import { LockScreen } from '@/components/desktop/components/lockScreen';
-import Base from '@/layouts/Base.astro';
----
+export const prerender = false;
 
-<Base title='hxsggsz - Home'>
-  <LockScreen client:only='react' />
-  <Desktop client:only='react' />
-</Base>
+const locale = Astro.preferredLocale ?? 'en';
+
+return Astro.redirect(`/${locale}/`, 307);
+---

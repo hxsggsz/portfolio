@@ -1,0 +1,10 @@
+---
+import { Desktop } from '@/components/desktop';
+import { LockScreen } from '@/components/desktop/components/lockScreen';
+import Base from '@/layouts/Base.astro';
+---
+
+<Base title='hxsggsz - Casa'>
+  <LockScreen client:only='react' />
+  <Desktop client:only='react' />
+</Base>

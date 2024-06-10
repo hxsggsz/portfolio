@@ -1,10 +1,14 @@
 import { ArrowRight } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useLockScreenStore } from '@/stores/lockscreen';
+import { cn } from '@/utils/cn';
 
 export const LockScreen = () => {
   const lockScreen = useLockScreenStore();
+
+  const { className } = usePrimaryColor('bg', 'focus-within');
 
   const closeLockScreen = () => lockScreen.setShouldClose(true);
 
@@ -43,7 +47,10 @@ export const LockScreen = () => {
                 autoFocus
                 onClick={closeLockScreen}
                 onKeyDown={handleKeyDown}
-                className="rounded-full p-1 opacity-80 outline-none transition-colors focus-within:bg-rose/80 active:bg-rose"
+                className={cn(
+                  'rounded-full p-1 opacity-80 outline-none transition-colors',
+                  className
+                )}
               >
                 <ArrowRight size={20} weight="bold" />
               </button>
