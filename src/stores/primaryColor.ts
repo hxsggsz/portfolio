@@ -10,7 +10,9 @@ interface PrimaryColorStoreTypes {
 
 export const usePrimaryColorStore = create<PrimaryColorStoreTypes>()((set) => ({
   primaryColor: getPrimaryColor('@primary') as PrimaryColorKeys,
-  changePrimaryColor(newColor) {
+
+  changePrimaryColor: (newColor) => {
+    localStorage.setItem('@primary', newColor);
     set({ primaryColor: newColor });
   },
 }));

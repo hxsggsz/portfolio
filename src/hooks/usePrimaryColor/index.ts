@@ -11,7 +11,6 @@ export function usePrimaryColor(...primary: Primary[]) {
   const primaryColor = usePrimaryColorStore();
 
   function changePrimaryColor(newColor: PrimaryColorKeys) {
-    localStorage.setItem('@primary', newColor);
     primaryColor.changePrimaryColor(newColor);
   }
 
