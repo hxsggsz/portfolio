@@ -26,6 +26,7 @@ export const Settings = (props: SettingsProps) => {
   const { setTheme } = useThemeMode();
 
   const { className, changePrimaryColor } = usePrimaryColor('border');
+  const langButton = usePrimaryColor('bg', 'border', 'focus-within');
 
   const renderPrimaryColors = () =>
     primaryColorsOptions.map((color) => (
@@ -43,6 +44,32 @@ export const Settings = (props: SettingsProps) => {
   return (
     <Window name={props.name} id={props.id}>
       <div className="grid place-items-center">
+        <h1 className="mb-2 text-lg font-semibold text-text">
+          Select your language
+        </h1>
+
+        <div className="flex gap-2">
+          <a
+            href="/en-us/"
+            className={cn(
+              'p-2 transition-colors text-text rounded-xl',
+              langButton.className
+            )}
+          >
+            english
+          </a>
+
+          <a
+            href="/pt-br/"
+            className={cn(
+              'p-2 transition-colors text-text rounded-xl',
+              langButton.className
+            )}
+          >
+            portuguese
+          </a>
+        </div>
+
         <h1 className="mb-2 text-lg font-semibold text-text">
           Select your favorite theme
         </h1>
