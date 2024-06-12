@@ -48,7 +48,7 @@ export const LockScreen = () => {
                 onClick={closeLockScreen}
                 onKeyDown={handleKeyDown}
                 className={cn(
-                  'rounded-full p-1 opacity-80 outline-none transition-colors',
+                  'rounded-full p-1 opacity-80 outline-none',
                   className
                 )}
               >

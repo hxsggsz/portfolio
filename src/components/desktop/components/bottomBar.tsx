@@ -41,7 +41,7 @@ export const BottonBar = () => {
               exit={{ opacity: 0 }}
               transition={{ type: 'tween', duration: 0.1 }}
               className={cn(
-                'absolute transition-colors bottom-1 left-1/2 -translate-x-1/2 rounded-full p-1',
+                'absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full p-1',
                 className
               )}
             />

@@ -26,7 +26,7 @@ export const Settings = (props: SettingsProps) => {
   const { setTheme } = useThemeMode();
 
   const { className, changePrimaryColor } = usePrimaryColor('border');
-  const langButton = usePrimaryColor('bg', 'border', 'focus-within');
+  const buttonAndInput = usePrimaryColor('bg', 'border', 'focus-within');
 
   const t = useTranslations();
 
@@ -35,11 +35,7 @@ export const Settings = (props: SettingsProps) => {
       <button
         key={nanoid()}
         onClick={() => changePrimaryColor(color)}
-        className={cn(
-          'rounded-full transition-colors bg-rose p-8',
-          className,
-          colors.bg[color]
-        )}
+        className={cn('rounded-full bg-rose p-8', className, colors.bg[color])}
       />
     ));
 
@@ -53,20 +49,14 @@ export const Settings = (props: SettingsProps) => {
         <div className="flex gap-2">
           <a
             href="/en-us/"
-            className={cn(
-              'p-2 transition-colors text-text rounded-xl',
-              langButton.className
-            )}
+            className={cn('p-2 text-text rounded-xl', buttonAndInput.className)}
           >
             {t('english')}
           </a>
 
           <a
             href="/pt-br/"
-            className={cn(
-              'p-2 transition-colors text-text rounded-xl',
-              langButton.className
-            )}
+            className={cn('p-2 text-text rounded-xl', buttonAndInput.className)}
           >
             {t('portuguese')}
           </a>
@@ -80,7 +70,7 @@ export const Settings = (props: SettingsProps) => {
           <button
             onClick={() => setTheme('light')}
             className={cn(
-              'rounded-full border border-love transition-colors bg-[#faf4ed] p-12',
+              'rounded-full border border-love bg-[#faf4ed] p-12',
               className
             )}
           />
@@ -88,7 +78,7 @@ export const Settings = (props: SettingsProps) => {
           <button
             onClick={() => setTheme('dark')}
             className={cn(
-              'rounded-full border border-love bg-[#232136] transition-colors p-12',
+              'rounded-full border border-love bg-[#232136] p-12',
               className
             )}
           />
@@ -99,6 +89,17 @@ export const Settings = (props: SettingsProps) => {
         </h1>
 
         <div className="flex gap-2">{renderPrimaryColors()}</div>
+
+        <label
+          className={cn(
+            'my-2 cursor-pointer p-2 rounded-lg font-semibold text-text',
+            buttonAndInput.className
+          )}
+        >
+          {/* TODO: adicionar a općão de mudar a imagem de fundo */}
+          {t('lang.title')}
+          <input type="file" className="hidden" />
+        </label>
       </div>
     </Window>
   );

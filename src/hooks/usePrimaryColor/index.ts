@@ -18,7 +18,9 @@ export function usePrimaryColor(...primary: Primary[]) {
     primary.forEach((indicator) => {
       setClassName((prev) =>
         prev.concat(
-          ` ${colors[indicator][primaryColor.primaryColor || 'love']}`
+          ` transition-colors ${
+            colors[indicator][primaryColor.primaryColor || 'love']
+          }`
         )
       );
     });
