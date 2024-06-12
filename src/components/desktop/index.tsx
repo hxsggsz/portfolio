@@ -23,7 +23,7 @@ export const Desktop = () => {
     const allWindows: Array<WindowsTyped> = [
       {
         name: 'Settings',
-        component: <Settings key={id} name={name} id={id} />,
+        component: <Settings key={id} id={id} />,
       },
     ];
 
@@ -42,9 +42,8 @@ export const Desktop = () => {
   return (
     <main
       style={{
-        backgroundImage: `url(${
-          theme === 'dark' ? wallpapperDark.src : wallpapperLight.src
-        })`,
+        backgroundImage: `url(${theme === 'dark' ? wallpapperDark.src : wallpapperLight.src
+          })`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}

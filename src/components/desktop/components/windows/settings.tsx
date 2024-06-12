@@ -4,13 +4,13 @@ import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { colors } from '@/hooks/usePrimaryColor/constants';
 import type { PrimaryColorKeys } from '@/hooks/usePrimaryColor/types';
 import { useThemeMode } from '@/hooks/useThemeMode';
+import { useTranslations } from '@/i18n/utils';
 import { cn } from '@/utils/cn';
 
 import { Window } from './window';
 
 interface SettingsProps {
   id: string;
-  name: string;
 }
 
 const primaryColorsOptions: PrimaryColorKeys[] = [
@@ -28,6 +28,8 @@ export const Settings = (props: SettingsProps) => {
   const { className, changePrimaryColor } = usePrimaryColor('border');
   const langButton = usePrimaryColor('bg', 'border', 'focus-within');
 
+  const t = useTranslations();
+
   const renderPrimaryColors = () =>
     primaryColorsOptions.map((color) => (
       <button
@@ -42,10 +44,10 @@ export const Settings = (props: SettingsProps) => {
     ));
 
   return (
-    <Window name={props.name} id={props.id}>
+    <Window name={t('Settings')} id={props.id}>
       <div className="grid place-items-center">
         <h1 className="mb-2 text-lg font-semibold text-text">
-          Select your language
+          {t('lang.title')}
         </h1>
 
         <div className="flex gap-2">
@@ -56,7 +58,7 @@ export const Settings = (props: SettingsProps) => {
               langButton.className
             )}
           >
-            english
+            {t('english')}
           </a>
 
           <a
@@ -66,12 +68,12 @@ export const Settings = (props: SettingsProps) => {
               langButton.className
             )}
           >
-            portuguese
+            {t('portuguese')}
           </a>
         </div>
 
         <h1 className="mb-2 text-lg font-semibold text-text">
-          Select your favorite theme
+          {t('theme.title')}
         </h1>
 
         <div className="flex items-center gap-2">
@@ -93,7 +95,7 @@ export const Settings = (props: SettingsProps) => {
         </div>
 
         <h1 className="mb-2 text-lg font-semibold text-text">
-          Select the main color
+          {t('primary.theme.title')}
         </h1>
 
         <div className="flex gap-2">{renderPrimaryColors()}</div>
