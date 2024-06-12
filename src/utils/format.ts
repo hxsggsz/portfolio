@@ -1,4 +1,4 @@
-type DateTimeTypes = 'en' | 'pt-br';
+type DateTimeTypes = 'en-us' | 'pt-br';
 
 export const formatDate = (locale: DateTimeTypes, date: Date) => {
   return Intl.DateTimeFormat(locale, {

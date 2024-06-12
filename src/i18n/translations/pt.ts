@@ -1,5 +1,5 @@
 export const ptTranslation = {
-  Settings: 'Configuraćões',
+  Settings: 'Configurações',
   english: 'Inglês',
   portuguese: 'Português',
   'lang.title': 'Selecione a sua linguagem',

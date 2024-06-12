@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 import { useInterval } from '@/hooks/useInterval';
+import { getLangFromUrl } from '@/i18n/utils';
 import { useLockScreenStore } from '@/stores/lockscreen';
 import { formatClock, formatDate } from '@/utils/format';
 
@@ -12,6 +13,8 @@ export const Topbar = () => {
   const lockScreen = useLockScreenStore();
 
   useInterval(() => setDateTime(new Date()), 1000);
+
+  const location = getLangFromUrl(new URL(window.location.href));
 
   return (
     <AnimatePresence>
@@ -29,8 +32,7 @@ export const Topbar = () => {
               <WifiHigh size={20} />
               <BatteryHigh size={20} />
             </div>
-            {/* TODO: pass dynamically the locale to this functions */}
-            {formatDate('en', dateTime)}|{formatClock('en', dateTime)}
+            {formatDate(location, dateTime)}|{formatClock(location, dateTime)}
           </div>
         </motion.div>
       )}
