@@ -1,8 +1,11 @@
 export const ptTranslation = {
-  Settings: 'Configurações',
   english: 'Inglês',
   portuguese: 'Português',
-  'lang.title': 'Selecione a sua linguagem',
-  'theme.title': 'Modo escuro?',
-  'primary.theme.title': 'Selecione o seu tema',
+  Settings: 'Configurações',
+  'settings.lang.title': 'Selecione a sua linguagem',
+  'settings.theme.title': 'Modo escuro?',
+  'settings.primary.theme.title': 'Selecione o seu tema',
+  'settings.image.title': 'Imagem de fundo',
+  'settings.image.label': 'Clique aqui ou arraste uma imagem',
+  'settings.image.delete': 'Remover imagem de fundo',
 };

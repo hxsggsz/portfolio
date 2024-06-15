@@ -39,11 +39,16 @@ export const Desktop = () => {
         renderCustomWindows(window.id, window.name)
     );
 
+  const getLocalStorageImage = localStorage.getItem('@background');
+  const selectDarkModeBackground =
+    theme === 'dark' ? wallpapperDark.src : wallpapperLight.src;
+  const selectDesktopBackground =
+    getLocalStorageImage ?? selectDarkModeBackground;
+
   return (
     <main
       style={{
-        backgroundImage: `url(${theme === 'dark' ? wallpapperDark.src : wallpapperLight.src
-          })`,
+        backgroundImage: `url(${selectDesktopBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
