@@ -1,4 +1,4 @@
-import { ImageBroken } from '@phosphor-icons/react';
+import { CloudArrowUp, ImageBroken } from '@phosphor-icons/react';
 import { nanoid } from 'nanoid';
 
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
@@ -31,6 +31,7 @@ export const Settings = (props: SettingsProps) => {
 
   const { className, changePrimaryColor } = usePrimaryColor('border');
   const buttonAndInput = usePrimaryColor('bg', 'border', 'focus-within');
+  const dragAndDrop = usePrimaryColor('bg');
 
   const { isDragging, handlers, handleUploadImage, removeCustomBackground } =
     useUploadImage();
@@ -124,15 +125,24 @@ export const Settings = (props: SettingsProps) => {
   );
 
   const renderDragAndDropSinalization = () => (
-    <div className="debug size-full">
-      <h1 className="debug w-full">drop aqui</h1>
+    <div
+      className={cn(
+        dragAndDrop.className,
+        'flex items-center justify-center text-text z-40 border-dashed border-text border-4 absolute inset-0 size-full'
+      )}
+    >
+      <div className="grid place-items-center">
+        <CloudArrowUp size={126} className="rounded-full bg-text/50 p-2" />
+        <h1 className="text-xl font-bold">{t('settings.image.drop')}</h1>
+      </div>
     </div>
   );
 
   return (
     <div {...handlers}>
       <Window name={t('Settings')} id={props.id}>
-        {isDragging ? renderDragAndDropSinalization() : renderSettings()}
+        {isDragging && renderDragAndDropSinalization()}
+        {renderSettings()}
       </Window>
     </div>
   );

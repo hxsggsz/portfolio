@@ -99,7 +99,7 @@ export const Window = (props: WindowProps) => {
           </div>
         </header>
 
-        <div className="p-2">{props.children}</div>
+        <div className="relative p-2">{props.children}</div>
       </Rnd>
     </motion.div>
   );

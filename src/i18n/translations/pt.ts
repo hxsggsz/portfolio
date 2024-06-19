@@ -8,4 +8,5 @@ export const ptTranslation = {
   'settings.image.title': 'Imagem de fundo',
   'settings.image.label': 'Clique aqui ou arraste uma imagem',
   'settings.image.delete': 'Remover imagem de fundo',
+  'settings.image.drop': 'Solte a foto aqui!',
 };
