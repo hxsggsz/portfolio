@@ -1,7 +1,11 @@
 import { useState } from 'react';
 
+import { useToast } from '@/stores/useToast';
+
 export function useUploadImage() {
   const [isDragging, setIsDragging] = useState(false);
+
+  const toast = useToast();
 
   function uploadImage(imageFile: File) {
     const generateImage = URL.createObjectURL(imageFile);
@@ -28,9 +32,8 @@ export function useUploadImage() {
     const getFirstFile = files.item(0);
 
     if (!getFirstFile || !getFirstFile.type.includes('image')) {
-      // TODO: temporary latter create a toast notification
-      // eslint-disable-next-line no-alert
-      alert(`file is not a image, ${getFirstFile?.name}`);
+      toast.error(`file is not a image, ${getFirstFile?.name}`);
+      setIsDragging(false);
       return;
     }
 
@@ -46,9 +49,7 @@ export function useUploadImage() {
     const getFirstFile = files.item(0);
 
     if (!getFirstFile || !getFirstFile.type.includes('image')) {
-      // TODO: temporary latter create a toast notification
-      // eslint-disable-next-line no-alert
-      alert(`file is not a image, ${getFirstFile?.name}`);
+      toast.error(`file is not a image, ${getFirstFile?.name}`);
       return;
     }
 

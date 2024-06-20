@@ -6,6 +6,7 @@ import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import type { WindowNames } from '@/types/windows';
 
+import { Toast } from '../toast';
 import { BottonBar } from './components/bottomBar';
 import { Topbar } from './components/topbar';
 import { Settings } from './components/windows/settings';
@@ -55,6 +56,7 @@ export const Desktop = () => {
       className="h-screen bg-base"
     >
       <Topbar />
+      <Toast />
       <AnimatePresence>{renderWindows()}</AnimatePresence>
       <BottonBar />
     </main>
