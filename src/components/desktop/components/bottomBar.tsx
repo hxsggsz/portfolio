@@ -19,8 +19,10 @@ export const BottonBar = () => {
   const renderApp = () =>
     windowManager.windows.map((window) => (
       <div key={window.id}>
-        <button
+        <motion.button
           key={window.id}
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           onClick={() => toggleOpenWindow(window.id)}
           className="rounded-md bg-highlightLow p-1 shadow-xl backdrop-blur-sm"
         >
@@ -31,7 +33,7 @@ export const BottonBar = () => {
             alt={`icon of ${window.name}`}
             className="pointer-events-none select-none"
           />
-        </button>
+        </motion.button>
 
         <AnimatePresence>
           {window.isOpen && (
