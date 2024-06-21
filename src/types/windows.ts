@@ -7,3 +7,7 @@ export interface WindowTypes {
   isOpen: boolean;
   isMinimized: boolean;
 }
+
+export interface DefaultWindowProps {
+  id: string;
+}

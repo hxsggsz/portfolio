@@ -1,4 +1,5 @@
 import { CloudArrowUp, ImageBroken } from '@phosphor-icons/react';
+import { motion } from 'framer-motion';
 import { nanoid } from 'nanoid';
 
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
@@ -7,13 +8,10 @@ import type { PrimaryColorKeys } from '@/hooks/usePrimaryColor/types';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useUploadImage } from '@/hooks/useUploadImage';
 import { useTranslations } from '@/i18n/utils';
+import type { DefaultWindowProps } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
 import { Window } from './window';
-
-interface SettingsProps {
-  id: string;
-}
 
 const primaryColorsOptions: PrimaryColorKeys[] = [
   'love',
@@ -24,7 +22,7 @@ const primaryColorsOptions: PrimaryColorKeys[] = [
   'iris',
 ];
 
-export const Settings = (props: SettingsProps) => {
+export const Settings = (props: DefaultWindowProps) => {
   const { setTheme } = useThemeMode();
 
   const t = useTranslations();
@@ -38,7 +36,9 @@ export const Settings = (props: SettingsProps) => {
 
   const renderPrimaryColors = () =>
     primaryColorsOptions.map((color) => (
-      <button
+      <motion.button
+        whileHover={{ y: -4 }}
+        transition={{ type: 'tween' }}
         key={nanoid()}
         onClick={() => changePrimaryColor(color)}
         className={cn('rounded-full bg-rose p-8', className, colors.bg[color])}
@@ -52,19 +52,23 @@ export const Settings = (props: SettingsProps) => {
       </h1>
 
       <div className="flex gap-2">
-        <a
+        <motion.a
           href="/en-us/"
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           className={cn('p-2 text-text rounded-xl', buttonAndInput.className)}
         >
           {t('english')}
-        </a>
+        </motion.a>
 
-        <a
+        <motion.a
           href="/pt-br/"
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           className={cn('p-2 text-text rounded-xl', buttonAndInput.className)}
         >
           {t('portuguese')}
-        </a>
+        </motion.a>
       </div>
 
       <h1 className="mb-2 text-lg font-semibold text-text">
@@ -72,7 +76,9 @@ export const Settings = (props: SettingsProps) => {
       </h1>
 
       <div className="flex items-center gap-2">
-        <button
+        <motion.button
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           onClick={() => setTheme('light')}
           className={cn(
             'rounded-full border border-love bg-[#faf4ed] p-12',
@@ -80,7 +86,9 @@ export const Settings = (props: SettingsProps) => {
           )}
         />
 
-        <button
+        <motion.button
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           onClick={() => setTheme('dark')}
           className={cn(
             'rounded-full border border-love bg-[#232136] p-12',
@@ -100,7 +108,9 @@ export const Settings = (props: SettingsProps) => {
       </h1>
 
       <div className="flex items-center gap-2">
-        <label
+        <motion.label
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           className={cn(
             'my-2 cursor-pointer p-2 rounded-lg text-sm font-semibold text-text',
             buttonAndInput.className
@@ -108,9 +118,11 @@ export const Settings = (props: SettingsProps) => {
         >
           {t('settings.image.label')}
           <input type="file" className="hidden" onChange={handleUploadImage} />
-        </label>
+        </motion.label>
 
-        <button
+        <motion.button
+          whileHover={{ y: -4 }}
+          transition={{ type: 'tween' }}
           className={cn(
             'p-2 h-full text-sm text-text rounded-xl',
             buttonAndInput.className
@@ -119,7 +131,7 @@ export const Settings = (props: SettingsProps) => {
           title={t('settings.image.delete')}
         >
           <ImageBroken size={24} />
-        </button>
+        </motion.button>
       </div>
     </div>
   );
