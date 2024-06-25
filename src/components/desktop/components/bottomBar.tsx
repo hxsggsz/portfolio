@@ -18,13 +18,13 @@ export const BottonBar = () => {
 
   const renderApp = () =>
     windowManager.windows.map((window) => (
-      <div key={window.id}>
+      <div className="relative" key={window.id}>
         <motion.button
           key={window.id}
           whileHover={{ y: -4 }}
           transition={{ type: 'tween' }}
           onClick={() => toggleOpenWindow(window.id)}
-          className="rounded-md bg-highlightLow p-1 shadow-xl backdrop-blur-sm"
+          className="flex size-14 items-center justify-center rounded-md bg-highlightLow shadow-xl backdrop-blur-sm"
         >
           <img
             width={50}
@@ -43,7 +43,7 @@ export const BottonBar = () => {
               exit={{ opacity: 0 }}
               transition={{ type: 'tween', duration: 0.1 }}
               className={cn(
-                'absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full p-1',
+                'absolute mt-1 left-1/2 -translate-x-1/2 rounded-full p-1',
                 className
               )}
             />

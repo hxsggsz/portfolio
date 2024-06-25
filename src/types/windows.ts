@@ -1,4 +1,4 @@
-export type WindowNames = 'Settings';
+export type WindowNames = 'Settings' | 'File Explorer';
 
 export interface WindowTypes {
   id: string;

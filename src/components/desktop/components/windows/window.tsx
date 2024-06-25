@@ -66,7 +66,6 @@ export const Window = (props: WindowProps) => {
           wrapper.className
         )}
       >
-        {/* eslint-disable-next-line tailwindcss/no-custom-classname -- need to pass handle class for drag */}
         <header
           className={cn(
             'handle flex w-full cursor-move touch-none justify-between gap-1 px-2 py-1 text-text',

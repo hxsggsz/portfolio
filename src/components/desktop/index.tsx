@@ -9,6 +9,7 @@ import type { WindowNames } from '@/types/windows';
 import { Toast } from '../toast';
 import { BottonBar } from './components/bottomBar';
 import { Topbar } from './components/topbar';
+import { FileExplorer } from './components/windows/fileExplorer';
 import { Settings } from './components/windows/settings';
 
 interface WindowsTyped {
@@ -25,6 +26,10 @@ export const Desktop = () => {
       {
         name: 'Settings',
         component: <Settings key={id} id={id} />,
+      },
+      {
+        name: 'File Explorer',
+        component: <FileExplorer key={id} id={id} />,
       },
     ];
 

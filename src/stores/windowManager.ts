@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 
 import settings from '@/assets/images/config.png';
+import folder from '@/assets/images/folders.png';
 import type { WindowTypes } from '@/types/windows';
 
 interface WindowManagerStoreTypes {
@@ -19,6 +20,13 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
         isMinimized: false,
         name: 'Settings' as const,
         image: settings.src,
+      },
+      {
+        id: nanoid(),
+        isOpen: false,
+        isMinimized: false,
+        name: 'File Explorer' as const,
+        image: folder.src,
       },
     ],
 
