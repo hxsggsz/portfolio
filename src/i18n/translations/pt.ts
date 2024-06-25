@@ -9,4 +9,5 @@ export const ptTranslation = {
   'settings.image.label': 'Clique aqui ou arraste uma imagem',
   'settings.image.delete': 'Remover imagem de fundo',
   'settings.image.drop': 'Solte a foto aqui!',
+  'File Explorer': 'Explorador de arquivos',
 };

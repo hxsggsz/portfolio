@@ -2,15 +2,14 @@ import { AnimatePresence } from 'framer-motion';
 
 import wallpapperDark from '@/assets/images/wallpapper-dark.png';
 import wallpapperLight from '@/assets/images/wallpapper-light.png';
+import { BottonBar } from '@/components/desktop/components/bottomBar';
+import { Topbar } from '@/components/desktop/components/topbar';
+import { FileExplorer } from '@/components/desktop/components/windows/fileExplorer/fileExplorer';
+import { Settings } from '@/components/desktop/components/windows/settings';
+import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import type { WindowNames } from '@/types/windows';
-
-import { Toast } from '../toast';
-import { BottonBar } from './components/bottomBar';
-import { Topbar } from './components/topbar';
-import { FileExplorer } from './components/windows/fileExplorer';
-import { Settings } from './components/windows/settings';
 
 interface WindowsTyped {
   name: WindowNames;

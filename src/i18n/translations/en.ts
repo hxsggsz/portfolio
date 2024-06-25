@@ -9,4 +9,5 @@ export const enTranslation = {
   'settings.image.label': 'Click here or drag a image',
   'settings.image.delete': 'Remove background',
   'settings.image.drop': 'Drop the image here',
+  'File Explorer': 'File Explorer',
 };
