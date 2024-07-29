@@ -9,6 +9,7 @@ import { Settings } from '@/components/desktop/components/windows/settings';
 import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
+import type { LanguageResponse } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
 interface WindowsTyped {
@@ -16,7 +17,11 @@ interface WindowsTyped {
   component: React.ReactNode;
 }
 
-export const Desktop = () => {
+interface DesktopProps {
+  languages: LanguageResponse[];
+}
+
+export const Desktop = (props: DesktopProps) => {
   const { theme } = useThemeMode();
   const windows = useWindowManagerStore((state) => state.windows);
 
@@ -28,7 +33,9 @@ export const Desktop = () => {
       },
       {
         name: 'File Explorer',
-        component: <FileExplorer key={id} id={id} />,
+        component: (
+          <FileExplorer key={id} id={id} languages={props.languages} />
+        ),
       },
     ];
 

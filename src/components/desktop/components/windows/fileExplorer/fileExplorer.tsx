@@ -3,14 +3,24 @@ import { useMemo, useState } from 'react';
 import { Languages } from '@/components/desktop/components/windows/fileExplorer/components/languages';
 import { Window } from '@/components/desktop/components/windows/window';
 import { useTranslations } from '@/i18n/utils';
+import type { LanguageResponse } from '@/types/api';
 import type { DefaultWindowProps } from '@/types/windows';
 
-export const FileExplorer = (props: DefaultWindowProps) => {
+interface FileExplorerProps extends DefaultWindowProps {
+  languages: LanguageResponse[];
+}
+
+export const FileExplorer = (props: FileExplorerProps) => {
   const [activeItem, setActiveItem] = useState('');
 
   const t = useTranslations();
 
-  const fileItems = [{ label: 'linguagens', component: <Languages /> }];
+  const fileItems = [
+    {
+      label: 'linguagens',
+      component: <Languages languages={props.languages} />,
+    },
+  ];
 
   const findActiveComponent = useMemo(() => {
     const activeComponent = fileItems.find((item) => item.label === activeItem);
@@ -19,19 +29,17 @@ export const FileExplorer = (props: DefaultWindowProps) => {
 
   const renderExplorerNav = () =>
     fileItems.map((item) => (
-      <li className="whitespace-nowrap pr-2">
+      <li key={item.label} className="whitespace-nowrap pr-2">
         <button onClick={() => setActiveItem(item.label)}>{item.label}</button>
       </li>
     ));
 
   return (
     <Window id={props.id} name={t('File Explorer')}>
-      <div className="flex gap-2 text-text">
-        <ul className="h-screen border-r border-white/10">
-          {renderExplorerNav()}
-        </ul>
+      <div className="flex min-h-max gap-2 text-text">
+        <ul className="border-r border-white/10">{renderExplorerNav()}</ul>
 
-        <div className="w-3/4">{findActiveComponent}</div>
+        <div>{findActiveComponent}</div>
       </div>
     </Window>
   );

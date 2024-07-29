@@ -56,8 +56,8 @@ export const Window = (props: WindowProps) => {
         bounds="body"
         default={{
           ...positionRef.current,
-          width: 'auto',
-          height: 'auto',
+          width: '300',
+          height: '300',
         }}
         dragHandleClassName="handle"
         className={cn(

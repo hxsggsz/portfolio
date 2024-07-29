@@ -2,11 +2,35 @@
 import { Desktop } from '@/components/desktop';
 import { LockScreen } from '@/components/desktop/components/lockScreen';
 import Base from '@/layouts/Base.astro';
+import type { LanguageResponse } from '@/types/api';
+
+const query = {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    query: `
+{
+  language {
+    id
+    name
+    state
+    image {
+      url
+    }
+  }
+}
+`,
+  }),
+};
+
+const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
+const json = await response.json();
+const languages: LanguageResponse[] = json.data.language;
 
 export const prerender = true;
 ---
 
-<Base title='hxsggsz - Área de trabalho'>
+<Base title='hxsggsz - Desktop'>
   <LockScreen client:only='react' />
-  <Desktop client:only='react' />
+  <Desktop languages={languages} client:only='react' />
 </Base>
