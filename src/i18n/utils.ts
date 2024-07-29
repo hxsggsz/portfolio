@@ -10,7 +10,7 @@ export function getLangFromUrl(url: URL) {
 export function useTranslations() {
   const lang = getLangFromUrl(new URL(window.location.href));
 
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
+  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
     return ui[lang][key] || ui[defaultLang][key];
   };
 }

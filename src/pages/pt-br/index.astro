@@ -10,7 +10,7 @@ const query = {
   body: JSON.stringify({
     query: `
 {
-  language {
+language(locales: [en_us], first: 100) {
     id
     name
     state
@@ -27,6 +27,7 @@ const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
 const json = await response.json();
 const languages: LanguageResponse[] = json.data.language;
 
+console.log(json)
 export const prerender = true;
 ---
 

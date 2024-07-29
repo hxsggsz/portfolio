@@ -2,6 +2,7 @@ export const enTranslation = {
   Settings: 'Settings',
   english: 'English',
   portuguese: 'Portuguese',
+  languages: 'Languages',
   'settings.lang.title': 'Select your language',
   'settings.theme.title': 'Dark mode?',
   'settings.primary.theme.title': 'Select your theme',

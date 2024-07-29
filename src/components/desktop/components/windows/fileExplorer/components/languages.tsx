@@ -13,6 +13,7 @@ const STATES: States[] = ['fullstack', 'frontend', 'backend'];
 
 export const Languages = (props: LanguagesProps) => {
   const [currentState, setCurrentState] = useState<States>('fullstack');
+  console.log(props);
 
   const { className } = usePrimaryColor('border');
   const { className: bgClass } = usePrimaryColor('bg');
@@ -37,7 +38,7 @@ export const Languages = (props: LanguagesProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ type: 'tween', duration: 0.4 }}
+        transition={{ type: 'tween', duration: 0.3 }}
         className={cn(
           'flex items-center select-none gap-2 pr-2 rounded-md pointer-events-none',
           className

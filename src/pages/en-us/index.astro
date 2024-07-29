@@ -10,7 +10,7 @@ const query = {
   body: JSON.stringify({
     query: `
 {
-  language {
+language(locales: [en_us], first: 100) {
     id
     name
     state

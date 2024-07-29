@@ -11,13 +11,13 @@ interface FileExplorerProps extends DefaultWindowProps {
 }
 
 export const FileExplorer = (props: FileExplorerProps) => {
-  const [activeItem, setActiveItem] = useState('');
-
   const t = useTranslations();
+
+  const [activeItem, setActiveItem] = useState(t('languages'));
 
   const fileItems = [
     {
-      label: 'linguagens',
+      label: t('languages'),
       component: <Languages languages={props.languages} />,
     },
   ];
