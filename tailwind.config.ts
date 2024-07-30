@@ -1,5 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies, global-require */
-module.exports = {
+/* eslint-disable global-require */
+import { type Config } from 'tailwindcss';
+
+export default {
   darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}'],
   theme: {
@@ -27,4 +29,4 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
   ],
-};
+} satisfies Config;

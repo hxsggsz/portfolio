@@ -2,7 +2,7 @@ export const ptTranslation = {
   english: 'Inglês',
   portuguese: 'Português',
   Settings: 'Configurações',
-  languages: 'Linguaguens',
+  languages: 'Linguagens',
   'settings.lang.title': 'Selecione a sua linguagem',
   'settings.theme.title': 'Modo escuro?',
   'settings.primary.theme.title': 'Selecione o seu tema',

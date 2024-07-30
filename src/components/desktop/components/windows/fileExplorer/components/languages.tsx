@@ -13,7 +13,6 @@ const STATES: States[] = ['fullstack', 'frontend', 'backend'];
 
 export const Languages = (props: LanguagesProps) => {
   const [currentState, setCurrentState] = useState<States>('fullstack');
-  console.log(props);
 
   const { className } = usePrimaryColor('border');
   const { className: bgClass } = usePrimaryColor('bg');
@@ -47,7 +46,7 @@ export const Languages = (props: LanguagesProps) => {
         <img
           src={lang.image.url}
           alt={`icon of the ${lang.name}`}
-          className={cn('aspect-video size-12 rounded-sm p-1', bgClass)}
+          className={cn('aspect-image size-12 rounded-sm p-1', bgClass)}
         />
 
         <p className="select-text whitespace-nowrap capitalize">{lang.name}</p>
