@@ -46,7 +46,7 @@ export const Languages = (props: LanguagesProps) => {
         <img
           src={lang.image.url}
           alt={`icon of the ${lang.name}`}
-          className={cn('aspect-image size-12 rounded-sm p-1', bgClass)}
+          className={cn('object-fill size-12 rounded-sm p-1', bgClass)}
         />
 
         <p className="select-text whitespace-nowrap capitalize">{lang.name}</p>
