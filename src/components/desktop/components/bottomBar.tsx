@@ -43,7 +43,7 @@ export const BottonBar = () => {
               exit={{ opacity: 0 }}
               transition={{ type: 'tween', duration: 0.1 }}
               className={cn(
-                'absolute mt-1 left-1/2 -translate-x-1/2 rounded-full p-1',
+                'absolute mt-1 -top-4 left-1/2 -translate-x-1/2 rounded-full p-1',
                 className
               )}
             />
@@ -57,8 +57,11 @@ export const BottonBar = () => {
       {shouldClose && (
         <motion.div
           initial={{ opacity: 0, y: 400 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 400 }}
+          animate={{
+            opacity: 1,
+            y: 50,
+          }}
+          whileHover={{ y: 0, transition: { delay: 0 } }}
           transition={{ type: 'tween', delay: 0.4 }}
           className="absolute bottom-0 left-[45%] z-30 mb-4 flex -translate-x-1/2 gap-4 rounded-full border-2 border-highlightLow bg-highlightHigh/60 p-4 text-text backdrop-blur-sm"
         >
