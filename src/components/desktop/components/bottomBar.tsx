@@ -58,8 +58,8 @@ export const BottonBar = () => {
         <motion.div
           initial={{ opacity: 0, y: 400 }}
           animate={{
-            opacity: 1,
             y: 50,
+            opacity: 1,
           }}
           whileHover={{ y: 0, transition: { delay: 0 } }}
           transition={{ type: 'tween', delay: 0.4 }}

@@ -61,7 +61,7 @@ export const Window = (props: WindowProps) => {
         }}
         dragHandleClassName="handle"
         className={cn(
-          'flex transition-size relative z-20 min-h-[400px] min-w-[50%] overflow-hidden rounded-md border border-love bg-highlightLow shadow-xl',
+          'flex transition-size relative z-20 min-h-[400px] min-w-[50%] overflow-hidden rounded-md bg-highlightLow shadow-xl',
           isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]',
           wrapper.className
         )}
@@ -98,7 +98,7 @@ export const Window = (props: WindowProps) => {
           </div>
         </header>
 
-        <div className="relative p-2">{props.children}</div>
+        <div className="relative flex w-full p-2">{props.children}</div>
       </Rnd>
     </motion.div>
   );

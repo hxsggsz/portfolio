@@ -23,6 +23,7 @@ interface DesktopProps {
 
 export const Desktop = (props: DesktopProps) => {
   const { theme } = useThemeMode();
+
   const windows = useWindowManagerStore((state) => state.windows);
 
   const renderCustomWindows = (id: string, name: string) => {
