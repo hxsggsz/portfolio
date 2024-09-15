@@ -9,7 +9,7 @@ import { Settings } from '@/components/desktop/components/windows/settings';
 import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
-import type { LanguageResponse } from '@/types/api';
+import type { LanguageResponse, ProjectsResponse } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
 interface WindowsTyped {
@@ -19,6 +19,7 @@ interface WindowsTyped {
 
 interface DesktopProps {
   languages: LanguageResponse[];
+  projects: ProjectsResponse[];
 }
 
 export const Desktop = (props: DesktopProps) => {
@@ -34,9 +35,7 @@ export const Desktop = (props: DesktopProps) => {
       },
       {
         name: 'File Explorer',
-        component: (
-          <FileExplorer key={id} id={id} languages={props.languages} />
-        ),
+        component: <FileExplorer key={id} id={id} {...props} />,
       },
     ];
 

@@ -4,6 +4,7 @@ export const enTranslation = {
   portuguese: 'Portuguese',
   languages: 'Languages',
   projects: 'Projects',
+  'projects.until': 'until',
   'settings.lang.title': 'Select your language',
   'settings.theme.title': 'Dark mode?',
   'settings.primary.theme.title': 'Select your theme',

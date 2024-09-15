@@ -8,3 +8,18 @@ export interface LanguageResponse {
     url: string;
   };
 }
+
+export interface ProjectsResponse {
+  id: string;
+  locale: string;
+  name: string;
+  githubLink?: string;
+  deployLink?: string;
+  description: string;
+  startAt: string;
+  endAt: string;
+  techs: string[];
+  projectImage: {
+    url: string;
+  };
+}

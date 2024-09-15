@@ -20,6 +20,7 @@ export const Window = (props: WindowProps) => {
 
   const wrapper = usePrimaryColor('border');
   const header = usePrimaryColor('bg', 'border');
+  const thumb = usePrimaryColor('thumb');
 
   const rndRef = useRef<Rnd | null>(null);
   const positionRef = useRef<{ x: number; y: number }>({
@@ -98,7 +99,14 @@ export const Window = (props: WindowProps) => {
           </div>
         </header>
 
-        <div className="relative flex w-full p-2">{props.children}</div>
+        <motion.div
+          className={cn(
+            'relative scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
+            thumb.className
+          )}
+        >
+          {props.children}
+        </motion.div>
       </Rnd>
     </motion.div>
   );

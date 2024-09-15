@@ -65,7 +65,7 @@ export const Languages = (props: LanguagesProps) => {
           onClick={changeActiveState}
           className={cn(
             'flex transition-colors items-center select-none gap-2 p-1 capitalize rounded-md',
-            activeState && bgClass,
+            activeState && `${bgClass} font-bold`,
             className
           )}
         >

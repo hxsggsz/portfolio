@@ -7,6 +7,14 @@ export const colors = {
     foam: 'border border-foam',
     iris: 'border border-iris',
   },
+  thumb: {
+    love: 'scrollbar-thumb-love',
+    gold: 'scrollbar-thumb-gold',
+    rose: 'scrollbar-thumb-rose',
+    pine: 'scrollbar-thumb-pine',
+    foam: 'scrollbar-thumb-foam',
+    iris: 'scrollbar-thumb-iris',
+  },
   bg: {
     love: 'bg-love',
     gold: 'bg-gold',
@@ -14,6 +22,14 @@ export const colors = {
     pine: 'bg-pine',
     foam: 'bg-foam',
     iris: 'bg-iris',
+  },
+  active: {
+    love: 'active:bg-love/80',
+    gold: 'active:bg-gold/80',
+    rose: 'active:bg-rose/80',
+    pine: 'active:bg-pine/80',
+    foam: 'active:bg-foam/80',
+    iris: 'active:bg-iris/80',
   },
   'focus-within': {
     love: 'focus-within:bg-love/80',

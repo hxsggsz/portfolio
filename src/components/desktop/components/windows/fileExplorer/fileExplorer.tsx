@@ -5,7 +5,7 @@ import { Languages } from '@/components/desktop/components/windows/fileExplorer/
 import { Window } from '@/components/desktop/components/windows/window';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useTranslations } from '@/i18n/utils';
-import type { LanguageResponse } from '@/types/api';
+import type { LanguageResponse, ProjectsResponse } from '@/types/api';
 import type { DefaultWindowProps } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
@@ -13,6 +13,7 @@ import { Projects } from '../projects';
 
 interface FileExplorerProps extends DefaultWindowProps {
   languages: LanguageResponse[];
+  projects: ProjectsResponse[];
 }
 
 export const FileExplorer = (props: FileExplorerProps) => {
@@ -29,7 +30,7 @@ export const FileExplorer = (props: FileExplorerProps) => {
     },
     {
       label: t('projects'),
-      component: <Projects />,
+      component: <Projects projects={props.projects} />,
     },
   ];
 
@@ -67,10 +68,10 @@ export const FileExplorer = (props: FileExplorerProps) => {
 
   return (
     <Window id={props.id} name={t('File Explorer')}>
-      <div className="flex min-h-max gap-2 text-text">
+      <div className="flex h-full gap-2 text-text">
         <ul className="border-r border-white/10">{renderExplorerNav()}</ul>
 
-        <div className="w-full">{findActiveComponent}</div>
+        <div>{findActiveComponent}</div>
       </div>
     </Window>
   );

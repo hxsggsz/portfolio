@@ -6,6 +6,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      maxHeight: {
+        fullContent: 'calc(100% - 34px)',
+      },
       colors: {
         base: 'rgb(var(--base) / <alpha-value>)',
         surface: 'rgb(var(--surface) / <alpha-value>)',
@@ -26,7 +29,8 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwind-scrollbar')({ nocompatible: true }),
   ],
 } satisfies Config;
