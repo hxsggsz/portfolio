@@ -101,7 +101,7 @@ export const Window = (props: WindowProps) => {
 
         <motion.div
           className={cn(
-            'relative justify-center scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
+            'relative scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
             thumb.className
           )}
         >

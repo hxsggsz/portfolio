@@ -12,14 +12,14 @@ export const ProjectCard = (props: ProjectsResponse) => {
   return (
     <div
       className={cn(
-        'w-full justify-center gap-2 rounded-md p-2 flex flex-col md:flex-row',
+        'w-full gap-2 m-2 rounded-md p-4 flex flex-col md:flex-row',
         card.className
       )}
     >
       <img
         src={props.projectImage.url}
         alt={`image of the ${props.name} project`}
-        className="rounded-md bg-rose object-cover"
+        className="size-48 rounded-md bg-rose object-cover"
       />
 
       <div className="flex flex-col justify-between">
@@ -29,14 +29,14 @@ export const ProjectCard = (props: ProjectsResponse) => {
           </p>
 
           <p className="whitespace-break-spaces text-sm">{props.description}</p>
+
+          <p className="text-sm text-text/60">
+            {new Date(props.startAt).toLocaleDateString()} {t('projects.until')}{' '}
+            {new Date(props.endAt).toLocaleDateString()}
+          </p>
         </div>
 
-        <p className="text-sm text-text/60">
-          {new Date(props.startAt).toLocaleDateString()} {t('projects.until')}{' '}
-          {new Date(props.endAt).toLocaleDateString()}
-        </p>
-
-        <div className="mt-2 space-x-2">
+        <div className="flex gap-2">
           {props.deployLink && (
             <a
               target="_blank"
