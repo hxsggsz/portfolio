@@ -46,68 +46,63 @@ export const Window = (props: WindowProps) => {
   };
 
   return (
-    <motion.div
-      initial={{ scale: 0.6, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.6, opacity: 0 }}
-      transition={{ duration: 0.1, type: 'tween' }}
+    <Rnd
+      ref={rndRef}
+      bounds="body"
+      default={{
+        ...positionRef.current,
+        width: '400',
+        height: '450',
+      }}
+      onDrag={() => windowManager.handleMainWindow(props.id)}
+      dragHandleClassName="handle"
+      className={cn(
+        'flex z-10 transition-size relative min-h-[400px] min-w-[50%] overflow-hidden rounded-md bg-highlightLow shadow-xl',
+        isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]',
+        wrapper.className,
+        windowManager.findWindow(props.id)?.isMain && 'z-50'
+      )}
     >
-      <Rnd
-        ref={rndRef}
-        bounds="body"
-        default={{
-          ...positionRef.current,
-          width: '400',
-          height: '450',
-        }}
-        dragHandleClassName="handle"
+      <header
         className={cn(
-          'flex transition-size relative z-20 min-h-[400px] min-w-[50%] overflow-hidden rounded-md bg-highlightLow shadow-xl',
-          isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]',
-          wrapper.className
+          'handle flex w-full cursor-move touch-none justify-between gap-1 px-2 py-1 text-text',
+          header.className
         )}
       >
-        <header
-          className={cn(
-            'handle flex w-full cursor-move touch-none justify-between gap-1 px-2 py-1 text-text',
-            header.className
-          )}
-        >
-          <p>{props.name}</p>
+        <p>{props.name}</p>
 
-          <div className="flex gap-2">
-            <button
-              onClick={() => windowManager.minimizeWindow(props.id)}
-              className="rounded-md p-0.5 hover:bg-pine active:bg-white/60"
-            >
-              <Minus size={20} />
-            </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => windowManager.minimizeWindow(props.id)}
+            className="rounded-md p-0.5 hover:bg-pine active:bg-white/60"
+          >
+            <Minus size={20} />
+          </button>
 
-            <button
-              onClick={() => updateFullScreen(!isFullScreen)}
-              className="rounded-md p-0.5 hover:bg-gold active:bg-white/60"
-            >
-              {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
-            </button>
+          <button
+            onClick={() => updateFullScreen(!isFullScreen)}
+            className="rounded-md p-0.5 hover:bg-gold active:bg-white/60"
+          >
+            {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
+          </button>
 
-            <button
-              onClick={() => windowManager.toggleWindow(props.id)}
-              className="rounded-md p-0.5 hover:bg-love active:bg-white/60"
-            >
-              <X size={20} />
-            </button>
-          </div>
-        </header>
+          <button
+            onClick={() => windowManager.toggleWindow(props.id)}
+            className="rounded-md p-0.5 hover:bg-love active:bg-white/60"
+          >
+            <X size={20} />
+          </button>
+        </div>
+      </header>
 
-        <motion.div
-          className={cn(
-            'relative scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
-            thumb.className
-          )}
-        >
-          {props.children}
-        </motion.div>
-      </Rnd>
-    </motion.div>
+      <motion.div
+        className={cn(
+          'relative scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
+          thumb.className
+        )}
+      >
+        {props.children}
+      </motion.div>
+    </Rnd>
   );
 };

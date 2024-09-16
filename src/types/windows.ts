@@ -5,6 +5,7 @@ export interface WindowTypes {
   name: WindowNames;
   image: string;
   isOpen: boolean;
+  isMain: boolean;
   isMinimized: boolean;
 }
 

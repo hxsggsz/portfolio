@@ -7,16 +7,19 @@ import type { WindowTypes } from '@/types/windows';
 
 interface WindowManagerStoreTypes {
   windows: WindowTypes[];
+  findWindow: (windowId: string) => WindowTypes | undefined;
+  handleMainWindow: (windowId: string) => void;
   toggleWindow: (windowId: string, open?: boolean) => void;
   minimizeWindow: (windowId: string, minimized?: boolean) => void;
 }
 
 export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
-  (set) => ({
+  (set, get) => ({
     windows: [
       {
         id: nanoid(),
         isOpen: false,
+        isMain: true,
         isMinimized: false,
         name: 'Settings' as const,
         image: settings.src,
@@ -24,18 +27,37 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
       {
         id: nanoid(),
         isOpen: false,
+        isMain: false,
         isMinimized: false,
         name: 'File Explorer' as const,
         image: folder.src,
       },
     ],
 
+    findWindow(windowId) {
+      return get().windows.find((window) => window.id === windowId);
+    },
+
     toggleWindow(windowId, open) {
       set((state) => ({
         windows: state.windows.map((window) =>
           window.id === windowId
-            ? { ...window, isOpen: open ?? !window.isOpen }
-            : window
+            ? {
+                ...window,
+                isOpen: open ?? !window.isOpen,
+                isMain: open ?? !window.isOpen,
+              }
+            : { ...window, isMain: false }
+        ),
+      }));
+    },
+
+    handleMainWindow(windowId) {
+      set((state) => ({
+        windows: state.windows.map((window) =>
+          window.id === windowId
+            ? { ...window, isMain: true }
+            : { ...window, isMain: false }
         ),
       }));
     },
