@@ -1,9 +1,10 @@
 import { Browser, Browsers, Minus, X } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
+import useSizeScreen from '@/hooks/useSizeScreen';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import { cn } from '@/utils/cn';
 
@@ -17,6 +18,8 @@ export const Window = (props: WindowProps) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const windowManager = useWindowManagerStore();
+
+  const { width } = useSizeScreen();
 
   const wrapper = usePrimaryColor('border');
   const header = usePrimaryColor('bg', 'border');
@@ -44,6 +47,12 @@ export const Window = (props: WindowProps) => {
       y: 0,
     });
   };
+
+  useEffect(() => {
+    if (width <= 768) {
+      updateFullScreen(true);
+    }
+  }, [width]);
 
   return (
     <Rnd
@@ -97,7 +106,7 @@ export const Window = (props: WindowProps) => {
 
       <motion.div
         className={cn(
-          'relative scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
+          'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
           thumb.className
         )}
       >

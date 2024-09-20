@@ -9,7 +9,11 @@ import { Settings } from '@/components/desktop/components/windows/settings';
 import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
-import type { LanguageResponse, ProjectsResponse } from '@/types/api';
+import type {
+  AboutMeResponse,
+  LanguageResponse,
+  ProjectsResponse,
+} from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
 interface WindowsTyped {
@@ -18,7 +22,8 @@ interface WindowsTyped {
 }
 
 interface DesktopProps {
-  languages: LanguageResponse[];
+  aboutMe: AboutMeResponse;
+  language: LanguageResponse[];
   projects: ProjectsResponse[];
 }
 

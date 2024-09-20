@@ -13,4 +13,6 @@ export const enTranslation = {
   'settings.image.delete': 'Remove background',
   'settings.image.drop': 'Drop the image here',
   'File Explorer': 'File Explorer',
+  'abt-me.nav': 'About me',
+  'abt-me.occupation': 'FullStack Programmer',
 };

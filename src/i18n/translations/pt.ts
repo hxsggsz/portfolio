@@ -13,4 +13,6 @@ export const ptTranslation = {
   'settings.image.delete': 'Remover imagem de fundo',
   'settings.image.drop': 'Solte a foto aqui!',
   'File Explorer': 'Explorador de arquivos',
+  'abt-me.nav': 'Sobre mim',
+  'abt-me.occupation': 'Programador FullStack',
 };

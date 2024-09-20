@@ -2,49 +2,14 @@
 import { Desktop } from '@/components/desktop';
 import { LockScreen } from '@/components/desktop/components/lockScreen';
 import Base from '@/layouts/Base.astro';
+import {fetchProjects} from "@/queries/"
 
-const query = {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    query: `
-{
-projects(locales: [en_us], first: 100) {
-    id
-    locale
-    name
-    githubLink
-    deployLink
-    description
-    startAt
-    endAt
-    techs
-    projectImage {
-      url
-    }
-  }
-language(locales: [en_us], first: 100) {
-    id
-    name
-    state
-    image {
-      url
-    }
-  }
-}
-`,
-  }),
-};
-
-const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
-const json = await response.json();
-
-const {projects, language} = json.data;
+const data = await fetchProjects(["en_us"])
 
 export const prerender = true;
 ---
 
 <Base title='hxsggsz - Desktop'>
   <LockScreen client:only='react' />
-  <Desktop languages={language} projects={projects} client:only='react' />
+  <Desktop {...data} client:only='react' />
 </Base>

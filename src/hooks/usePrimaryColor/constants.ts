@@ -23,6 +23,14 @@ export const colors = {
     foam: 'bg-foam',
     iris: 'bg-iris',
   },
+  fill: {
+    love: 'fill-love',
+    gold: 'fill-gold',
+    rose: 'fill-rose',
+    pine: 'fill-pine',
+    foam: 'fill-foam',
+    iris: 'fill-iris',
+  },
   active: {
     love: 'active:bg-love/80',
     gold: 'active:bg-gold/80',
