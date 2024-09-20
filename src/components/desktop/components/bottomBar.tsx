@@ -39,11 +39,15 @@ export const BottonBar = () => {
           {window.isOpen && (
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{
+                opacity: 1,
+                scaleX: window.isMain ? 3 : 1,
+              }}
               exit={{ opacity: 0 }}
               transition={{ type: 'tween', duration: 0.1 }}
               className={cn(
-                'absolute mt-1 -top-4 left-1/2 -translate-x-1/2 rounded-full p-1',
+                'absolute transition mt-1 -top-4 left-1/2 -translate-x-1/2 rounded-full p-1',
+                window.isMain && 'rounded-sm p-[3px]',
                 className
               )}
             />
