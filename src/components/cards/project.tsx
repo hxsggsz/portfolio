@@ -1,10 +1,18 @@
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useTranslations } from '@/i18n/utils';
+import { useWindowManagerStore } from '@/stores/windowManager';
 import type { ProjectsResponse } from '@/types/api';
 import { cn } from '@/utils/cn';
 
-export const ProjectCard = (props: ProjectsResponse) => {
+interface ProjectCardProps extends ProjectsResponse {
+  windowId: string;
+}
+
+export const ProjectCard = (props: ProjectCardProps) => {
   const t = useTranslations();
+
+  const { findWindow } = useWindowManagerStore();
+  const isWindowFullScreen = findWindow(props.windowId)?.isFullscreen;
 
   const card = usePrimaryColor('border');
   const button = usePrimaryColor('bg', 'active');
@@ -12,7 +20,8 @@ export const ProjectCard = (props: ProjectsResponse) => {
   return (
     <div
       className={cn(
-        'w-full items-center gap-2 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
+        'items-center gap-2 md:h-56 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
+        !isWindowFullScreen && 'w-full',
         card.className
       )}
     >
@@ -28,34 +37,43 @@ export const ProjectCard = (props: ProjectsResponse) => {
             {props.name}
           </p>
 
-          <p className="whitespace-break-spaces text-sm">{props.description}</p>
+          <p
+            className={cn(
+              'line-clamp-4 w-[342px] text-ellipsis text-sm',
+              !isWindowFullScreen && 'w-full'
+            )}
+          >
+            {props.description}
+          </p>
+        </div>
 
+        <div>
           <p className="text-sm text-text/60">
             {new Date(props.startAt).toLocaleDateString()} {t('projects.until')}{' '}
             {new Date(props.endAt).toLocaleDateString()}
           </p>
-        </div>
 
-        <div className="flex justify-center gap-2 md:justify-start">
-          {props.deployLink && (
-            <a
-              target="_blank"
-              href={props.deployLink}
-              className={cn('p-2 rounded-md', button.className)}
-            >
-              deploy
-            </a>
-          )}
+          <div className="flex justify-start gap-2">
+            {props.deployLink && (
+              <a
+                target="_blank"
+                href={props.deployLink}
+                className={cn('p-2 rounded-md', button.className)}
+              >
+                deploy
+              </a>
+            )}
 
-          {props.githubLink && (
-            <a
-              target="_blank"
-              href={props.githubLink}
-              className={cn('p-2 rounded-md', button.className)}
-            >
-              github
-            </a>
-          )}
+            {props.githubLink && (
+              <a
+                target="_blank"
+                href={props.githubLink}
+                className={cn('p-2 rounded-md', button.className)}
+              >
+                github
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

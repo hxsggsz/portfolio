@@ -1,6 +1,6 @@
 import { Browser, Browsers, Minus, X } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Rnd } from 'react-rnd';
 
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
@@ -15,8 +15,6 @@ interface WindowProps {
 }
 
 export const Window = (props: WindowProps) => {
-  const [isFullScreen, setIsFullScreen] = useState(false);
-
   const windowManager = useWindowManagerStore();
 
   const { width } = useSizeScreen();
@@ -31,8 +29,11 @@ export const Window = (props: WindowProps) => {
     y: window.innerHeight / 6,
   });
 
+  const isFullScreen =
+    windowManager.findWindow(props.id)?.isFullscreen ?? false;
+
   const updateFullScreen = (fullScreenValue: boolean) => {
-    setIsFullScreen(fullScreenValue);
+    windowManager.toggleFullScreen(props.id, fullScreenValue);
 
     if (!rndRef.current) return;
 
@@ -92,7 +93,11 @@ export const Window = (props: WindowProps) => {
             onClick={() => updateFullScreen(!isFullScreen)}
             className="rounded-md p-0.5 hover:bg-gold active:bg-white/60"
           >
-            {!isFullScreen ? <Browser size={20} /> : <Browsers size={20} />}
+            {!windowManager.findWindow(props.id)?.isFullscreen ? (
+              <Browser size={20} />
+            ) : (
+              <Browsers size={20} />
+            )}
           </button>
 
           <button
@@ -106,7 +111,7 @@ export const Window = (props: WindowProps) => {
 
       <motion.div
         className={cn(
-          'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto p-2',
+          'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto pt-2',
           thumb.className
         )}
       >

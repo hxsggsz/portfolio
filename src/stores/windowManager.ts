@@ -9,6 +9,7 @@ interface WindowManagerStoreTypes {
   windows: WindowTypes[];
   findWindow: (windowId: string) => WindowTypes | undefined;
   handleMainWindow: (windowId: string) => void;
+  toggleFullScreen: (windowId: string, open?: boolean) => void;
   toggleWindow: (windowId: string, open?: boolean) => void;
   minimizeWindow: (windowId: string, minimized?: boolean) => void;
 }
@@ -20,6 +21,7 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
         id: nanoid(),
         isOpen: false,
         isMain: true,
+        isFullscreen: false,
         isMinimized: false,
         name: 'Settings' as const,
         image: settings.src,
@@ -28,6 +30,7 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
         id: nanoid(),
         isOpen: false,
         isMain: false,
+        isFullscreen: false,
         isMinimized: false,
         name: 'File Explorer' as const,
         image: folder.src,
@@ -36,6 +39,19 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
 
     findWindow(windowId) {
       return get().windows.find((window) => window.id === windowId);
+    },
+
+    toggleFullScreen(windowId, open) {
+      set((state) => ({
+        windows: state.windows.map((window) =>
+          window.id === windowId
+            ? {
+                ...window,
+                isFullscreen: open ?? !window.isFullscreen,
+              }
+            : window
+        ),
+      }));
     },
 
     toggleWindow(windowId, open) {

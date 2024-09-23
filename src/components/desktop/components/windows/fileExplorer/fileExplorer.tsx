@@ -40,7 +40,7 @@ export const FileExplorer = (props: FileExplorerProps) => {
     },
     {
       label: t('projects'),
-      component: <Projects projects={props.projects} />,
+      component: <Projects projects={props.projects} windowId={props.id} />,
     },
   ];
 
