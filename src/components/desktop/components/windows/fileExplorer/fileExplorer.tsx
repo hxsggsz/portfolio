@@ -56,7 +56,7 @@ export const FileExplorer = (props: FileExplorerProps) => {
         <li
           key={item.label}
           className={cn(
-            'relative whitespace-nowrap p-1 mr-1',
+            'relative font-semibold whitespace-nowrap p-1 mr-1',
             activeLabelItem && 'font-bold'
           )}
         >
@@ -78,8 +78,10 @@ export const FileExplorer = (props: FileExplorerProps) => {
 
   return (
     <Window id={props.id} name={t('File Explorer')}>
-      <div className="flex h-full gap-2 text-text">
-        <ul className="border-r-2 border-white/10">{renderExplorerNav()}</ul>
+      <div className="h-full gap-2 text-text md:flex">
+        <ul className="flex justify-center border-white/10 pb-2 md:block md:border-r-2">
+          {renderExplorerNav()}
+        </ul>
 
         <div>{findActiveComponent}</div>
       </div>
