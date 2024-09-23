@@ -20,7 +20,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
   return (
     <div
       className={cn(
-        'items-center gap-2 md:h-56 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
+        'items-start gap-2 md:h-56 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
         !isWindowFullScreen && 'w-full',
         card.className
       )}

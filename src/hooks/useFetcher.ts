@@ -14,6 +14,7 @@ export const useFetcher = <TFetchData>(url: string) => {
       try {
         const response = await fetch(url, { signal });
         if (!response.ok) throw new Error(response.statusText);
+
         const json = (await response.json()) as TFetchData;
 
         setData(json);
