@@ -28,7 +28,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
       <img
         src={props.projectImage.url}
         alt={`image of the ${props.name} project`}
-        className="size-48 rounded-md bg-rose object-cover"
+        className="w-full rounded-md bg-rose object-cover md:size-48"
       />
 
       <div className="flex flex-col justify-between">
