@@ -14,7 +14,7 @@ export const Topbar = () => {
 
   useInterval(() => setDateTime(new Date()), 1000);
 
-  const location = getLangFromUrl(new URL(window.location.href));
+  const location = getLangFromUrl();
 
   return (
     <AnimatePresence>

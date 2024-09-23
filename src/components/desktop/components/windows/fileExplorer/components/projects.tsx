@@ -10,5 +10,5 @@ export const Projects = (props: ProjectsProps) => {
       <ProjectCard key={project.id} {...project} />
     ));
 
-  return <div className="space-y-2">{renderProjects()}</div>;
+  return <div className="space-y-2 pb-3 pr-3">{renderProjects()}</div>;
 };

@@ -15,4 +15,5 @@ export const ptTranslation = {
   'File Explorer': 'Explorador de arquivos',
   'abt-me.nav': 'Sobre mim',
   'abt-me.occupation': 'Programador FullStack',
+  'res.title': 'Meu Currículo',
 };

@@ -15,4 +15,5 @@ export const enTranslation = {
   'File Explorer': 'File Explorer',
   'abt-me.nav': 'About me',
   'abt-me.occupation': 'FullStack Programmer',
+  'res.title': 'My Resume',
 };

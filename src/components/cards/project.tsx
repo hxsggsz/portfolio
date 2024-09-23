@@ -12,7 +12,7 @@ export const ProjectCard = (props: ProjectsResponse) => {
   return (
     <div
       className={cn(
-        'w-full gap-2 m-2 rounded-md p-4 flex flex-col md:flex-row',
+        'w-full items-center gap-2 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
         card.className
       )}
     >
@@ -36,7 +36,7 @@ export const ProjectCard = (props: ProjectsResponse) => {
           </p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex justify-center gap-2 md:justify-start">
           {props.deployLink && (
             <a
               target="_blank"

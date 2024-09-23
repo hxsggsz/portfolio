@@ -12,7 +12,7 @@ export async function fetchProjects(langs: Langs[]) {
     body: JSON.stringify({
       query: `
         {
-        ${language(langs)},
+        ${language(['en_us'])},
         ${aboutMe(langs)},
         ${project(langs)}
         }

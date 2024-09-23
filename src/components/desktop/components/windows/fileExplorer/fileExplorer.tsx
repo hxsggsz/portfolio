@@ -13,8 +13,8 @@ import type {
 import type { DefaultWindowProps } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
-import { Projects } from '../projects';
 import { AboutMe } from './components/about-me';
+import { Projects } from './components/projects';
 
 interface FileExplorerProps extends DefaultWindowProps {
   aboutMe: AboutMeResponse;

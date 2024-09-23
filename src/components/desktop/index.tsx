@@ -16,6 +16,8 @@ import type {
 } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
+import { Resume } from './components/resume';
+
 interface WindowsTyped {
   name: WindowNames;
   component: React.ReactNode;
@@ -59,6 +61,7 @@ export const Desktop = (props: DesktopProps) => {
   const getLocalStorageImage = localStorage.getItem('@background');
   const selectDarkModeBackground =
     theme === 'dark' ? wallpapperDark.src : wallpapperLight.src;
+
   const selectDesktopBackground =
     getLocalStorageImage ?? selectDarkModeBackground;
 
@@ -73,6 +76,11 @@ export const Desktop = (props: DesktopProps) => {
     >
       <Topbar />
       <Toast />
+
+      <div className="flex w-full p-4">
+        <Resume />
+      </div>
+
       <AnimatePresence>{renderWindows()}</AnimatePresence>
       <BottonBar />
     </main>
