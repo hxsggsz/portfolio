@@ -48,7 +48,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
         </div>
 
         <div>
-          <p className="text-sm text-text/60">
+          <p className="mb-2 text-sm text-text/60">
             {new Date(props.startAt).toLocaleDateString()} {t('projects.until')}{' '}
             {new Date(props.endAt).toLocaleDateString()}
           </p>
@@ -60,7 +60,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
                 href={props.deployLink}
                 className={cn('p-2 rounded-md', button.className)}
               >
-                deploy
+                Deploy
               </a>
             )}
 
@@ -70,7 +70,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
                 href={props.githubLink}
                 className={cn('p-2 rounded-md', button.className)}
               >
-                github
+                Github
               </a>
             )}
           </div>
