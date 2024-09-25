@@ -17,6 +17,7 @@ import type {
 import type { WindowNames } from '@/types/windows';
 
 import { Resume } from './components/resume';
+import { SocialMedia } from './components/social-media';
 
 interface WindowsTyped {
   name: WindowNames;
@@ -37,12 +38,12 @@ export const Desktop = (props: DesktopProps) => {
   const renderCustomWindows = (id: string, name: string) => {
     const allWindows: Array<WindowsTyped> = [
       {
-        name: 'Settings',
-        component: <Settings key={id} id={id} />,
+        name: 'File Explorer',
+        component: <FileExplorer id={id} {...props} />,
       },
       {
-        name: 'File Explorer',
-        component: <FileExplorer key={id} id={id} {...props} />,
+        name: 'Settings',
+        component: <Settings id={id} />,
       },
     ];
 
@@ -77,8 +78,9 @@ export const Desktop = (props: DesktopProps) => {
       <Topbar />
       <Toast />
 
-      <div className="flex w-full p-4">
+      <div className="flex w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
         <Resume />
+        <SocialMedia />
       </div>
 
       <AnimatePresence>{renderWindows()}</AnimatePresence>

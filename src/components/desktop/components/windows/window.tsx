@@ -70,7 +70,7 @@ export const Window = (props: WindowProps) => {
         'flex z-10 transition-size relative min-h-[400px] min-w-[50%] overflow-hidden rounded-md bg-highlightLow shadow-xl',
         isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]',
         wrapper.className,
-        windowManager.findWindow(props.id)?.isMain && 'z-50'
+        windowManager.findWindow(props.id)?.isMain && 'z-20'
       )}
     >
       <header

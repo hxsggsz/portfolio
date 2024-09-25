@@ -79,7 +79,7 @@ export const FileExplorer = (props: FileExplorerProps) => {
   return (
     <Window id={props.id} name={t('File Explorer')}>
       <div className="h-full gap-2 text-text md:flex">
-        <ul className="flex justify-center border-white/10 pb-2 md:block md:border-r-2">
+        <ul className="flex justify-center border-white/10 px-2 pb-2 md:block md:border-r-2">
           {renderExplorerNav()}
         </ul>
 

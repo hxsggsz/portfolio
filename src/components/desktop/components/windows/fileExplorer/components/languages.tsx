@@ -76,10 +76,10 @@ export const Languages = (props: LanguagesProps) => {
 
   return (
     <div className="w-full">
-      <div className="mb-2 flex items-center gap-2">{renderStates()}</div>
+      <div className="mb-2 flex items-center gap-2 px-4">{renderStates()}</div>
 
       <AnimatePresence>
-        <div className="flex flex-wrap gap-2">{renderLanguages()}</div>
+        <div className="flex flex-wrap gap-2 px-4">{renderLanguages()}</div>
       </AnimatePresence>
     </div>
   );
