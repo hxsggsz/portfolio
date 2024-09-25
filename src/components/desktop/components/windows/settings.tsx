@@ -46,7 +46,7 @@ export const Settings = (props: DefaultWindowProps) => {
     ));
 
   const renderSettings = () => (
-    <div className="grid w-full place-items-center">
+    <div className="grid h-fit w-full place-items-center gap-2">
       <h1 className="mb-2 text-lg font-semibold text-text">
         {t('settings.lang.title')}
       </h1>

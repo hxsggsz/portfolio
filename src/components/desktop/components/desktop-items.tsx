@@ -43,7 +43,7 @@ export const DesktopItems = (props: DesktopItemsProps) => {
             className="pointer-events-none size-20 select-none"
           />
 
-          <h1 className="select-none whitespace-nowrap text-text">
+          <h1 className="select-none whitespace-nowrap font-semibold text-text">
             {props.name}
           </h1>
         </motion.button>
