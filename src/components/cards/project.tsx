@@ -1,5 +1,5 @@
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
-import { useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import type { ProjectsResponse } from '@/types/api';
 import { cn } from '@/utils/cn';
@@ -10,6 +10,7 @@ interface ProjectCardProps extends ProjectsResponse {
 
 export const ProjectCard = (props: ProjectCardProps) => {
   const t = useTranslations();
+  const lang = getLangFromUrl();
 
   const { findWindow } = useWindowManagerStore();
   const isWindowFullScreen = findWindow(props.windowId)?.isFullscreen;
@@ -49,8 +50,9 @@ export const ProjectCard = (props: ProjectCardProps) => {
 
         <div>
           <p className="mb-2 text-sm text-text/60">
-            {new Date(props.startAt).toLocaleDateString()} {t('projects.until')}{' '}
-            {new Date(props.endAt).toLocaleDateString()}
+            {new Date(props.startAt).toLocaleDateString(lang)}{' '}
+            {t('projects.until')}{' '}
+            {new Date(props.endAt).toLocaleDateString(lang)}
           </p>
 
           <div className="flex justify-start gap-2">

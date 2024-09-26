@@ -9,11 +9,7 @@ import { Settings } from '@/components/desktop/components/windows/settings';
 import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
-import type {
-  AboutMeResponse,
-  LanguageResponse,
-  ProjectsResponse,
-} from '@/types/api';
+import type { HygraphResponse } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
 import { Resume } from './components/resume';
@@ -24,13 +20,7 @@ interface WindowsTyped {
   component: React.ReactNode;
 }
 
-interface DesktopProps {
-  aboutMe: AboutMeResponse;
-  language: LanguageResponse[];
-  projects: ProjectsResponse[];
-}
-
-export const Desktop = (props: DesktopProps) => {
+export const Desktop = (props: HygraphResponse) => {
   const { theme } = useThemeMode();
 
   const windows = useWindowManagerStore((state) => state.windows);

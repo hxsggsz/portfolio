@@ -1,11 +1,10 @@
 export type States = 'fullstack' | 'frontend' | 'backend';
 
 export interface HygraphResponse {
-  data: {
-    aboutMe: AboutMeResponse;
-    language: LanguageResponse[];
-    projects: ProjectsResponse[];
-  };
+  aboutMe: AboutMeResponse;
+  language: LanguageResponse[];
+  projects: ProjectsResponse[];
+  experiences: ExperienceResponse[];
 }
 
 export interface LanguageResponse {
@@ -35,4 +34,12 @@ export interface ProjectsResponse {
 export interface AboutMeResponse {
   id: string;
   aboutMe: string;
+}
+
+export interface ExperienceResponse {
+  title: string;
+  companyName: string;
+  description: string;
+  startAt: Date;
+  endAt: Date | null;
 }

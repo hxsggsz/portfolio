@@ -2,6 +2,7 @@ import type { HygraphResponse } from '@/types/api';
 import type { Langs } from '@/types/langs';
 
 import { aboutMe } from './about-me';
+import { experience } from './experience';
 import { language } from './language';
 import { project } from './project';
 
@@ -14,7 +15,8 @@ export async function fetchProjects(langs: Langs[]) {
         {
         ${language(['en_us'])},
         ${aboutMe(langs)},
-        ${project(langs)}
+        ${project(langs)},
+        ${experience(langs)}
         }
       `,
     }),

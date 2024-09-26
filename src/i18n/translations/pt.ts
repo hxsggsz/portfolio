@@ -4,6 +4,7 @@ export const ptTranslation = {
   Settings: 'Configurações',
   languages: 'Linguagens',
   projects: 'Projetos',
+  now: 'Agora',
   'projects.until': 'até',
   'settings.lang.title': 'Selecione a sua linguagem',
   'settings.theme.title': 'Modo escuro?',
@@ -16,4 +17,5 @@ export const ptTranslation = {
   'abt-me.nav': 'Sobre mim',
   'abt-me.occupation': 'Programador FullStack',
   'res.title': 'Meu Currículo',
+  'exp.title': 'Experiencias',
 };

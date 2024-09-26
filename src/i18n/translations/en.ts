@@ -4,6 +4,7 @@ export const enTranslation = {
   portuguese: 'Portuguese',
   languages: 'Languages',
   projects: 'Projects',
+  now: 'Now',
   'projects.until': 'until',
   'settings.lang.title': 'Select your language',
   'settings.theme.title': 'Dark mode?',
@@ -16,4 +17,5 @@ export const enTranslation = {
   'abt-me.nav': 'About me',
   'abt-me.occupation': 'FullStack Programmer',
   'res.title': 'My Resume',
+  'exp.title': 'Experiences',
 };
