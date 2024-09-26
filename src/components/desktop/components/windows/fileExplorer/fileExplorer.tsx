@@ -18,7 +18,7 @@ interface FileExplorerProps extends DefaultWindowProps, HygraphResponse {}
 export const FileExplorer = (props: FileExplorerProps) => {
   const t = useTranslations();
 
-  const [activeItem, setActiveItem] = useState(t('exp.title'));
+  const [activeItem, setActiveItem] = useState(t('abt-me.nav'));
 
   const activeBg = usePrimaryColor('bg');
 
