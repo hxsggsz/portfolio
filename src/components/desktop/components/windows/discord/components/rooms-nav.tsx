@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useDiscordStore } from '@/stores/discord';
 import type { ServerRoom } from '@/types/api';
 import { cn } from '@/utils/cn';
@@ -28,6 +30,13 @@ export const RoomsNav = (props: RoomNavProps) => {
       );
     });
 
+  useEffect(() => {
+    const findFirstRoom = props.rooms.at(0);
+
+    if (findFirstRoom) {
+      updateRoomId(findFirstRoom.id);
+    }
+  }, []);
   return (
     <div className="w-2/12 max-w-60 whitespace-nowrap bg-discDarkGrey p-2 text-discText">
       <h1>Canais de texto</h1>
