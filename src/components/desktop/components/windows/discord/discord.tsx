@@ -1,0 +1,55 @@
+import { useEffect, useMemo } from 'react';
+
+import { Window } from '@/components/desktop/components/windows/window';
+import { useDiscordStore } from '@/stores/discord';
+import type { DiscordResponse } from '@/types/api';
+import type { DefaultWindowProps } from '@/types/windows';
+
+import { RoomsNav } from './components/rooms-nav';
+import { ServerNav } from './components/server-nav';
+
+interface FileExplorerProps extends DefaultWindowProps {
+  discord: DiscordResponse[];
+}
+
+export const Discord = (props: FileExplorerProps) => {
+  const { serverId, updateServerId } = useDiscordStore();
+
+  const renderServers = () =>
+    props.discord.map((item) => (
+      <ServerNav
+        serverId={item.id}
+        key={item.serverImg.id}
+        img={item.serverImg.url}
+      />
+    ));
+
+  const renderRooms = useMemo(() => {
+    const foundDiscordServer = props.discord.find(
+      (disc) => disc.id === serverId
+    );
+
+    return (
+      foundDiscordServer &&
+      foundDiscordServer.serverRoom.map((room) => (
+        <RoomsNav key={room.id} roomName={room.roomName} />
+      ))
+    );
+  }, [props.discord, serverId]);
+
+  useEffect(() => {
+    const firstDiscordServer = props.discord.at(0);
+
+    if (firstDiscordServer) {
+      updateServerId(firstDiscordServer.id);
+    }
+  }, []);
+
+  return (
+    <Window id={props.id} name="Discord">
+      {renderServers()}
+      {renderRooms}
+      <div className="w-[78%] bg-discGrey" />
+    </Window>
+  );
+};

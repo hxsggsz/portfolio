@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 
 import settings from '@/assets/images/config.png';
+import discord from '@/assets/images/discord.png';
 import folder from '@/assets/images/folders.png';
 import type { WindowTypes } from '@/types/windows';
 
@@ -34,6 +35,15 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
         isMinimized: false,
         name: 'File Explorer' as const,
         image: folder.src,
+      },
+      {
+        id: nanoid(),
+        isOpen: false,
+        isMain: false,
+        isFullscreen: false,
+        isMinimized: false,
+        name: 'Discord' as const,
+        image: discord.src,
       },
     ],
 

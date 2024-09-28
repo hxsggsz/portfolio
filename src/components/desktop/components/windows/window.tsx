@@ -81,7 +81,7 @@ export const Window = (props: WindowProps) => {
       >
         <p>{props.name}</p>
 
-        <div className="flex gap-2">
+        <div className="flex">
           <button
             onClick={() => windowManager.minimizeWindow(props.id)}
             className="rounded-md p-0.5 hover:bg-pine active:bg-white/60"
@@ -111,7 +111,7 @@ export const Window = (props: WindowProps) => {
 
       <motion.div
         className={cn(
-          'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto pt-2',
+          'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto',
           thumb.className
         )}
       >

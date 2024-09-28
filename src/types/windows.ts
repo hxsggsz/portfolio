@@ -1,4 +1,4 @@
-export type WindowNames = 'Settings' | 'File Explorer';
+export type WindowNames = 'Settings' | 'File Explorer' | 'Discord';
 
 export interface WindowTypes {
   id: string;

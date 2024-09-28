@@ -5,6 +5,7 @@ export interface HygraphResponse {
   language: LanguageResponse[];
   projects: ProjectsResponse[];
   experiences: ExperienceResponse[];
+  discords: DiscordResponse[];
 }
 
 export interface LanguageResponse {
@@ -42,4 +43,30 @@ export interface ExperienceResponse {
   description: string;
   startAt: Date;
   endAt: Date | null;
+}
+export interface DiscordResponse {
+  id: string;
+  serverImg: ServerImg;
+  serverRoom: ServerRoom[];
+}
+
+export interface ServerImg {
+  id: string;
+  url: string;
+}
+
+export interface ServerRoom {
+  id: string;
+  roomName: string;
+  roomMessage: RoomMessage[];
+}
+
+export interface RoomMessage {
+  id: string;
+  profilePicture: ProfilePicture;
+  message: string;
+}
+
+export interface ProfilePicture {
+  url: string;
 }

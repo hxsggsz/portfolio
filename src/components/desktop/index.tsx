@@ -14,6 +14,7 @@ import type { WindowNames } from '@/types/windows';
 
 import { Resume } from './components/resume';
 import { SocialMedia } from './components/social-media';
+import { Discord } from './components/windows/discord/discord';
 
 interface WindowsTyped {
   name: WindowNames;
@@ -29,11 +30,15 @@ export const Desktop = (props: HygraphResponse) => {
     const allWindows: Array<WindowsTyped> = [
       {
         name: 'File Explorer',
-        component: <FileExplorer id={id} {...props} />,
+        component: <FileExplorer key={id} id={id} {...props} />,
       },
       {
         name: 'Settings',
-        component: <Settings id={id} />,
+        component: <Settings key={id} id={id} />,
+      },
+      {
+        name: 'Discord',
+        component: <Discord key={id} id={id} discord={props.discords} />,
       },
     ];
 
