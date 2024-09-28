@@ -15,15 +15,6 @@ interface FileExplorerProps extends DefaultWindowProps {
 export const Discord = (props: FileExplorerProps) => {
   const { serverId, updateServerId } = useDiscordStore();
 
-  const renderServers = () =>
-    props.discord.map((item) => (
-      <ServerNav
-        serverId={item.id}
-        key={item.serverImg.id}
-        img={item.serverImg.url}
-      />
-    ));
-
   const renderRooms = useMemo(() => {
     const foundDiscordServer = props.discord.find(
       (disc) => disc.id === serverId
@@ -44,8 +35,7 @@ export const Discord = (props: FileExplorerProps) => {
 
   return (
     <Window id={props.id} name="Discord">
-      {renderServers()}
-
+      <ServerNav servers={props.discord} />
       {renderRooms}
       <div className="w-[78%] bg-discGrey" />
     </Window>
