@@ -30,10 +30,7 @@ export const Discord = (props: FileExplorerProps) => {
     );
 
     return (
-      foundDiscordServer &&
-      foundDiscordServer.serverRoom.map((room) => (
-        <RoomsNav key={room.id} roomName={room.roomName} />
-      ))
+      foundDiscordServer && <RoomsNav rooms={foundDiscordServer.serverRoom} />
     );
   }, [props.discord, serverId]);
 
@@ -48,6 +45,7 @@ export const Discord = (props: FileExplorerProps) => {
   return (
     <Window id={props.id} name="Discord">
       {renderServers()}
+
       {renderRooms}
       <div className="w-[78%] bg-discGrey" />
     </Window>

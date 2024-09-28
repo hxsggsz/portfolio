@@ -1,30 +1,38 @@
-import { useState } from 'react';
-
+import { useDiscordStore } from '@/stores/discord';
+import type { ServerRoom } from '@/types/api';
 import { cn } from '@/utils/cn';
 
 interface RoomNavProps {
-  roomName: string;
+  rooms: ServerRoom[];
 }
 
 export const RoomsNav = (props: RoomNavProps) => {
-  const [isActive] = useState(true);
+  const { roomId, updateRoomId } = useDiscordStore();
+
+  const renderRoomNames = () =>
+    props.rooms.map((room) => {
+      const isRoomActive = room.id === roomId;
+      return (
+        <button onClick={() => updateRoomId(room.id)}>
+          <p
+            className={cn(
+              'rounded-sm text-start capitalize select-none px-2 cursor-pointer py-0.5',
+              isRoomActive
+                ? 'bg-discTextActive/80 text-discDarkGrey'
+                : 'hover:bg-discTextActive/5'
+            )}
+          >
+            # {room.roomName}
+          </p>
+        </button>
+      );
+    });
 
   return (
     <div className="w-2/12 whitespace-nowrap bg-discDarkGrey p-2 text-discText">
       <h1>Canais de texto</h1>
 
-      <div className="space-y-1">
-        <p
-          className={cn(
-            'rounded-sm px-2 cursor-pointer py-0.5',
-            isActive
-              ? 'bg-discTextActive/80 text-discDarkGrey'
-              : 'hover:bg-discTextActive/5'
-          )}
-        >
-          # {props.roomName}
-        </p>
-      </div>
+      <div className="flex flex-col gap-1">{renderRoomNames()}</div>
     </div>
   );
 };
