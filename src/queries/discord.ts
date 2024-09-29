@@ -13,6 +13,7 @@ export function discord(langs: Langs[]) {
               roomName
               roomMessage {
                 id
+                name
                 profilePicture {
                   url
                 }

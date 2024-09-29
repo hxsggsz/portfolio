@@ -18,4 +18,5 @@ export const ptTranslation = {
   'abt-me.occupation': 'Programador FullStack',
   'res.title': 'Meu Currículo',
   'exp.title': 'Experiencias',
+  'disc.placeholder': 'Conversar em',
 };

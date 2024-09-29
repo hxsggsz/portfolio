@@ -25,12 +25,12 @@ export const ServerNav = (props: ServerNavProps) => {
               isActive ? 'h-full' : 'h-4'
             )}
           />
-          <img src={server.serverImg.url} className="ml-2 size-12 rounded-xl" />
+          <img src={server.serverImg.url} className="ml-3 size-12 rounded-xl" />
         </button>
       );
     });
 
   return (
-    <div className="w-[72px] bg-discBlack p-2 pl-0">{renderServers()}</div>
+    <div className="min-w-[72px] bg-discBlack p-3 pl-0">{renderServers()}</div>
   );
 };

@@ -63,8 +63,9 @@ export interface ServerRoom {
 
 export interface RoomMessage {
   id: string;
-  profilePicture: ProfilePicture;
+  name: string;
   message: string;
+  profilePicture: ProfilePicture;
 }
 
 export interface ProfilePicture {

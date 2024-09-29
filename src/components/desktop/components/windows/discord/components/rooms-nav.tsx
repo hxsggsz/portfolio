@@ -15,7 +15,7 @@ export const RoomsNav = (props: RoomNavProps) => {
     props.rooms.map((room) => {
       const isRoomActive = room.id === roomId;
       return (
-        <button onClick={() => updateRoomId(room.id)}>
+        <button key={room.id} onClick={() => updateRoomId(room.id)}>
           <p
             className={cn(
               'rounded-[4px] transition-all text-start capitalize select-none px-2 cursor-pointer py-0.5',
@@ -38,10 +38,10 @@ export const RoomsNav = (props: RoomNavProps) => {
     }
   }, []);
   return (
-    <div className="w-2/12 max-w-60 whitespace-nowrap bg-discDarkGrey p-2 text-discText">
+    <div className="max-w-60 whitespace-nowrap bg-discDarkGrey p-2 text-discText">
       <h1>Canais de texto</h1>
 
-      <div className="flex flex-col gap-1">{renderRoomNames()}</div>
+      <div className="grid gap-1">{renderRoomNames()}</div>
     </div>
   );
 };

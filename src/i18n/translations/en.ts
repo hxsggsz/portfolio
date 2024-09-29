@@ -18,4 +18,5 @@ export const enTranslation = {
   'abt-me.occupation': 'FullStack Programmer',
   'res.title': 'My Resume',
   'exp.title': 'Experiences',
+  'disc.placeholder': 'Chat in',
 };
