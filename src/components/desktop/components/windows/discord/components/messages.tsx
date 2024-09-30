@@ -31,10 +31,12 @@ export const Messages = (props: MessageProps) => {
   return (
     <div className="flex w-full flex-col justify-between bg-discGrey px-6">
       <DiscordHeader roomName={props.roomName} />
-      <div>
+
+      <div className="h-full overflow-y-auto scrollbar-thin scrollbar-track-discBlack/10 scrollbar-thumb-discBlack scrollbar-w-0.5">
         {renderMessages()}
-        <ChatInput roomName={props.roomName} />
       </div>
+
+      <ChatInput roomName={props.roomName} />
     </div>
   );
 };
