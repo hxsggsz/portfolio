@@ -1,6 +1,7 @@
 import type { RoomMessage } from '@/types/api';
 
 import { ChatInput } from './chat-input';
+import { DiscordHeader } from './discord-header';
 
 interface MessageProps {
   roomName: string;
@@ -28,9 +29,12 @@ export const Messages = (props: MessageProps) => {
     ));
 
   return (
-    <div className="flex w-full flex-col justify-end bg-discGrey px-6">
-      {renderMessages()}
-      <ChatInput roomName={props.roomName} />
+    <div className="flex w-full flex-col justify-between bg-discGrey px-6">
+      <DiscordHeader roomName={props.roomName} />
+      <div>
+        {renderMessages()}
+        <ChatInput roomName={props.roomName} />
+      </div>
     </div>
   );
 };

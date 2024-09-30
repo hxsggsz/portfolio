@@ -6,6 +6,7 @@ import { useTranslations } from '@/i18n/utils';
 interface ChatInputProps {
   roomName: string;
 }
+
 export const ChatInput = (props: ChatInputProps) => {
   const t = useTranslations();
 
