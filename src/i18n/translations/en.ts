@@ -19,4 +19,5 @@ export const enTranslation = {
   'res.title': 'My Resume',
   'exp.title': 'Experiences',
   'disc.placeholder': 'Chat in',
+  'disc.rooms.title': 'Text channels',
 };

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import { useTranslations } from '@/i18n/utils';
 import { useDiscordStore } from '@/stores/discord';
 import type { ServerRoom } from '@/types/api';
 import { cn } from '@/utils/cn';
@@ -9,6 +10,8 @@ interface RoomNavProps {
 }
 
 export const RoomsNav = (props: RoomNavProps) => {
+  const t = useTranslations();
+
   const { roomId, updateRoomId } = useDiscordStore();
 
   const renderRoomNames = () =>
@@ -39,7 +42,7 @@ export const RoomsNav = (props: RoomNavProps) => {
   }, []);
   return (
     <div className="max-w-60 whitespace-nowrap bg-discDarkGrey p-2 text-discText">
-      <h1>Canais de texto</h1>
+      <h1>{t('disc.rooms.title')}</h1>
 
       <div className="grid gap-1">{renderRoomNames()}</div>
     </div>

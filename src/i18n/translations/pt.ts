@@ -19,4 +19,5 @@ export const ptTranslation = {
   'res.title': 'Meu Currículo',
   'exp.title': 'Experiencias',
   'disc.placeholder': 'Conversar em',
+  'disc.rooms.title': 'Canais de texto',
 };
