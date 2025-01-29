@@ -69,15 +69,17 @@ export const Desktop = (props: HygraphResponse) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
-      className="h-screen bg-base"
+      className="flex h-screen flex-col justify-between bg-base"
     >
-      <Topbar />
-      <Toast />
+      <div>
+        <Topbar />
+        <Toast />
 
-      <div className="flex w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
-        <Resume />
-        <SocialMedia />
-        <Devto />
+        <div className="flex w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
+          <Resume />
+          <SocialMedia />
+          <Devto />
+        </div>
       </div>
 
       <AnimatePresence>{renderWindows()}</AnimatePresence>
