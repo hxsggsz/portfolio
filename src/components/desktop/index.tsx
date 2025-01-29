@@ -12,6 +12,7 @@ import { useWindowManagerStore } from '@/stores/windowManager';
 import type { HygraphResponse } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
+import { Devto } from './components/devto';
 import { Resume } from './components/resume';
 import { SocialMedia } from './components/social-media';
 import { Discord } from './components/windows/discord/discord';
@@ -76,6 +77,7 @@ export const Desktop = (props: HygraphResponse) => {
       <div className="flex w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
         <Resume />
         <SocialMedia />
+        <Devto />
       </div>
 
       <AnimatePresence>{renderWindows()}</AnimatePresence>

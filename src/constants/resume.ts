@@ -6,3 +6,4 @@ export const PT_RESUME_LINK =
 
 export const GITHUB_LINK = 'https://github.com/hxsggsz';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/in/hxsggsz/';
+export const DEVTO_LINK = 'https://dev.to/hxsggsz';
