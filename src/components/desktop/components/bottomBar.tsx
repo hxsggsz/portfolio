@@ -60,12 +60,12 @@ export const BottonBar = () => {
     <AnimatePresence>
       {shouldClose && (
         <motion.div
-          initial={{ opacity: 0, bottom: -400 }}
+          initial={{ opacity: 0, scale: 0.4 }}
           animate={{
-            bottom: -100,
+            scale: 0.8,
             opacity: 1,
           }}
-          whileHover={{ bottom: -50, transition: { delay: 0 } }}
+          whileHover={{ scale: 1.0, transition: { delay: 0 } }}
           transition={{ type: 'tween', delay: 0.4 }}
           className="absolute bottom-0 left-1/2 z-30 mb-4 flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-full border-2 border-highlightLow bg-highlightHigh/60 p-4 text-text backdrop-blur-sm"
         >
