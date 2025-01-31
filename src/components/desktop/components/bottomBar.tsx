@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
+import useSizeScreen from '@/hooks/useSizeScreen';
 import { useLockScreenStore } from '@/stores/lockscreen';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import { cn } from '@/utils/cn';
@@ -10,6 +11,8 @@ export const BottonBar = () => {
   const shouldClose = useLockScreenStore((state) => state.shouldClose);
 
   const { className } = usePrimaryColor('bg');
+
+  const { width } = useSizeScreen();
 
   function toggleOpenWindow(windowId: string) {
     windowManager.toggleWindow(windowId, true);
@@ -63,7 +66,7 @@ export const BottonBar = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{
-              scale: 0.8,
+              scale: width >= 768 ? 0.8 : 1.0,
               opacity: 1,
             }}
             whileHover={{ scale: 1.0, transition: { delay: 0 } }}
