@@ -13,7 +13,10 @@ export const useFetcher = <TFetchData>(url: string) => {
       setIsPending(true);
       try {
         const response = await fetch(url, { signal });
-        if (!response.ok) throw new Error(response.statusText);
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
 
         const json = (await response.json()) as TFetchData;
 
@@ -23,10 +26,7 @@ export const useFetcher = <TFetchData>(url: string) => {
         if (err instanceof Error) {
           // eslint-disable-next-line no-console
           console.error(`[${new Date().toISOString()}]: useFetcher.ts `, err);
-
-          setError(
-            `[${new Date().toISOString()}]: error while fetching the data  ${err.message}`
-          );
+          setError(`-> ${err.message}`);
         }
       } finally {
         setIsPending(false);
@@ -39,5 +39,6 @@ export const useFetcher = <TFetchData>(url: string) => {
       controller.abort();
     };
   }, []);
+
   return { data, isPending, error };
 };

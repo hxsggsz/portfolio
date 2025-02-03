@@ -16,10 +16,15 @@ export const AboutMe = (props: AboutMeProps) => {
   const border = usePrimaryColor('border');
   const thumb = usePrimaryColor('thumb');
 
-  const { data, isPending } = useFetcher<GithubProfile>(
+  const { data, error, isPending } = useFetcher<GithubProfile>(
     'https://api.github.com/users/hxsggsz'
   );
 
+  const renderError = () => (
+    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      error {error}
+    </div>
+  );
   const renderLoading = () => (
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <Loading width={100} height={100} />
@@ -57,6 +62,7 @@ export const AboutMe = (props: AboutMeProps) => {
   return (
     <div className="flex size-full w-full justify-center whitespace-break-spaces">
       {isPending ? renderLoading() : renderGithubContent()}
+      {error && renderError()}
     </div>
   );
 };
