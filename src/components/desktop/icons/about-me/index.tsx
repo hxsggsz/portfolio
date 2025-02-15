@@ -1,9 +1,15 @@
+import { useRef } from 'react';
+
+import folder from '@/assets/images/folders.png';
+import { DesktopItems } from '@/components/desktop/icons/desktop-icon';
+import { Window } from '@/components/desktop/windows/window/';
 import { Loading } from '@/components/loading';
 import { useFetcher } from '@/hooks/useFetcher';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useTranslations } from '@/i18n/utils';
 import type { AboutMeResponse } from '@/types/api';
 import type { GithubProfile } from '@/types/github';
+import type { UseImperativeWindowHandler } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
 interface AboutMeProps {
@@ -11,7 +17,11 @@ interface AboutMeProps {
 }
 
 export const AboutMe = (props: AboutMeProps) => {
+  const windowRef = useRef<UseImperativeWindowHandler>(null);
+
   const t = useTranslations();
+
+  const windowName = t('abt-me.nav');
 
   const border = usePrimaryColor('border');
   const thumb = usePrimaryColor('thumb');
@@ -22,7 +32,7 @@ export const AboutMe = (props: AboutMeProps) => {
 
   const renderError = () => (
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      error {error}
+      Something went frong: {error}
     </div>
   );
   const renderLoading = () => (
@@ -60,9 +70,19 @@ export const AboutMe = (props: AboutMeProps) => {
     );
 
   return (
-    <div className="flex size-full w-full justify-center whitespace-break-spaces">
-      {isPending ? renderLoading() : renderGithubContent()}
-      {error && renderError()}
-    </div>
+    <>
+      <DesktopItems
+        name={windowName}
+        icon={folder.src}
+        onDoubleClick={() =>
+          windowRef.current?.openWindow({ name: windowName, image: folder.src })
+        }
+      />
+
+      <Window name={windowName} ref={windowRef}>
+        {isPending ? renderLoading() : renderGithubContent()}
+        {error && renderError()}
+      </Window>
+    </>
   );
 };
