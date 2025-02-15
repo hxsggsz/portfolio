@@ -35,10 +35,11 @@ export const Desktop = (props: HygraphResponse) => {
         <Topbar />
         <Toast />
 
-        <div className="flex w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
+        <div className="flex max-h-desktop w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
           <Resume />
           <SocialMedia />
           <Devto />
+          <Discord discord={props.discords} />
           <Experiences experiences={props.experiences} />
         </div>
       </div>
