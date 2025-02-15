@@ -11,6 +11,7 @@ import type { HygraphResponse } from '@/types/api';
 
 import { Discord } from './icons/discord';
 import { Experiences } from './icons/experiences';
+import { Settings } from './icons/settings';
 
 export const Desktop = (props: HygraphResponse) => {
   const { theme } = useThemeMode();
@@ -36,6 +37,7 @@ export const Desktop = (props: HygraphResponse) => {
         <Toast />
 
         <div className="flex max-h-desktop w-min flex-col flex-wrap items-center justify-start gap-4 p-4">
+          <Settings />
           <Resume />
           <SocialMedia />
           <Devto />
