@@ -1,15 +1,12 @@
-export type WindowNames = 'Settings' | 'File Explorer' | 'Discord';
-
 export interface WindowTypes {
-  id: string;
-  name: WindowNames;
+  name: string;
   image: string;
-  isFullscreen: boolean;
-  isOpen: boolean;
-  isMain: boolean;
-  isMinimized: boolean;
 }
 
 export interface DefaultWindowProps {
   id: string;
+}
+
+export interface UseImperativeWindowHandler {
+  openWindow: (newWindow: WindowTypes) => void;
 }

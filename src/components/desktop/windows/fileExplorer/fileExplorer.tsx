@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 
-import { Languages } from '@/components/desktop/components/windows/fileExplorer/components/languages';
-import { Window } from '@/components/desktop/components/windows/window';
+import { Languages } from '@/components/desktop/windows/fileExplorer/components/languages';
+import { Window } from '@/components/desktop/windows/window/';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useTranslations } from '@/i18n/utils';
 import type { HygraphResponse } from '@/types/api';
@@ -10,7 +10,7 @@ import type { DefaultWindowProps } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
 import { AboutMe } from './components/about-me';
-import { Experiences } from './components/experiences';
+// import { Experiences } from './components/experiences';
 import { Projects } from './components/projects';
 
 interface FileExplorerProps extends DefaultWindowProps, HygraphResponse {}
@@ -31,10 +31,10 @@ export const FileExplorer = (props: FileExplorerProps) => {
       label: t('languages'),
       component: <Languages languages={props.language} />,
     },
-    {
-      label: t('exp.title'),
-      component: <Experiences experiences={props.experiences} />,
-    },
+    // {
+    //   label: t('exp.title'),
+    //   component: <Experiences experiences={props.experiences} />,
+    // },
     {
       label: t('projects'),
       component: <Projects projects={props.projects} windowId={props.id} />,

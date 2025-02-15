@@ -1,8 +1,7 @@
 import file from '@/assets/images/files.png';
+import { DesktopItems } from '@/components/desktop/icons/desktop-icon';
 import { EN_RESUME_LINK, PT_RESUME_LINK } from '@/constants/resume';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-
-import { DesktopItems } from './desktop-items';
 
 export const Resume = () => {
   const t = useTranslations();

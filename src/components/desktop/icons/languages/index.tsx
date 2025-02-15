@@ -1,8 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
+import file from '@/assets/images/files.png';
+import { DesktopItems } from '@/components/desktop/icons/desktop-icon';
+import { Window } from '@/components/desktop/windows/window/';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
+import { useTranslations } from '@/i18n/utils';
 import type { LanguageResponse, States } from '@/types/api';
+import type { UseImperativeWindowHandler } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
 interface LanguagesProps {
@@ -13,6 +18,12 @@ const STATES: States[] = ['fullstack', 'frontend', 'backend'];
 
 export const Languages = (props: LanguagesProps) => {
   const [currentState, setCurrentState] = useState<States>('fullstack');
+
+  const windowRef = useRef<UseImperativeWindowHandler>(null);
+
+  const t = useTranslations();
+
+  const windowName = t('languages');
 
   const { className } = usePrimaryColor('border');
   const { className: bgClass } = usePrimaryColor('bg');
@@ -75,12 +86,26 @@ export const Languages = (props: LanguagesProps) => {
     });
 
   return (
-    <div className="w-full">
-      <div className="mb-2 flex items-center gap-2 px-4">{renderStates()}</div>
+    <>
+      <DesktopItems
+        name={windowName}
+        icon={file.src}
+        onDoubleClick={() =>
+          windowRef.current?.openWindow({ name: windowName, image: file.src })
+        }
+      />
 
-      <AnimatePresence>
-        <div className="flex flex-wrap gap-2 px-4">{renderLanguages()}</div>
-      </AnimatePresence>
-    </div>
+      <Window name={windowName} ref={windowRef}>
+        <div className="w-full">
+          <div className="mb-2 flex items-center gap-2 px-4">
+            {renderStates()}
+          </div>
+
+          <AnimatePresence>
+            <div className="flex flex-wrap gap-2 px-4">{renderLanguages()}</div>
+          </AnimatePresence>
+        </div>
+      </Window>
+    </>
   );
 };
