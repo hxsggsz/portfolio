@@ -52,13 +52,11 @@ export const Window = forwardRef<UseImperativeWindowHandler, WindowProps>(
             width: '400',
             height: '450',
           }}
-          // onDrag={() => windowManager.handleMainWindow(props.id)}
           dragHandleClassName="handle"
           className={cn(
             'flex z-10 transition-size relative min-h-[500px] min-w-[50%] overflow-hidden rounded-md bg-highlightLow text-text shadow-xl',
             isFullScreen && 'min-w-[100vw] max-w-full max-h-full min-h-[100vh]',
             wrapper.className
-            // windowManager.findWindow(props.id)?.isMain && 'z-20'
           )}
         >
           <header

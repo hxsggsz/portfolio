@@ -8,8 +8,6 @@ export const BottonBar = () => {
   const windows = useOpenWindowsStore((state) => state.openWindows);
   const shouldClose = useLockScreenStore((state) => state.shouldClose);
 
-  // const { className } = usePrimaryColor('bg');
-
   const { width } = useSizeScreen();
 
   const renderApp = () =>
@@ -20,7 +18,6 @@ export const BottonBar = () => {
           whileHover={{ y: -4 }}
           transition={{ type: 'tween' }}
           title={`icon of ${window.name}`}
-          // onClick={() => toggleOpenWindow(window.id)}
           className="flex size-14 items-center justify-center rounded-md bg-highlightLow shadow-xl backdrop-blur-sm"
         >
           <img
@@ -31,25 +28,6 @@ export const BottonBar = () => {
             className="pointer-events-none select-none"
           />
         </motion.button>
-
-        {/* <AnimatePresence>
-          {window.isOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                scaleX: window.isMain ? 3 : 1,
-              }}
-              exit={{ opacity: 0 }}
-              transition={{ type: 'tween', duration: 0.1 }}
-              className={cn(
-                'absolute transition mt-1 -top-4 left-1/2 -translate-x-1/2 rounded-full p-1',
-                window.isMain && 'rounded-sm p-[3px]',
-                className
-              )}
-            />
-          )}
-        </AnimatePresence> */}
       </div>
     ));
 
