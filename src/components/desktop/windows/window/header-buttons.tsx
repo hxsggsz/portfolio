@@ -2,7 +2,7 @@ import { Browser, Browsers, Minus, X } from '@phosphor-icons/react';
 
 interface HeaderButtonsProps {
   isFullScreen: boolean;
-  toggleOpen: (open?: boolean) => void;
+  closeWindow: () => void;
   updateFullscreen: (fullScreenValue: boolean) => void;
 }
 
@@ -11,7 +11,7 @@ export const HeaderButtons = (props: HeaderButtonsProps) => {
     <div className="flex">
       <button
         // TODO: update to close the window but still show on bottom bar
-        onClick={() => props.toggleOpen()}
+        onClick={() => props.closeWindow()}
         className="rounded-md p-0.5 hover:bg-pine active:bg-white/60"
       >
         <Minus size={20} />
@@ -25,7 +25,7 @@ export const HeaderButtons = (props: HeaderButtonsProps) => {
       </button>
 
       <button
-        onClick={() => props.toggleOpen()}
+        onClick={() => props.closeWindow()}
         className="rounded-md p-0.5 hover:bg-love active:bg-white/60"
       >
         <X size={20} />

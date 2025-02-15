@@ -1,6 +1,6 @@
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { useWindowManagerStore } from '@/stores/windowManager';
+import { useOpenWindowsStore } from '@/stores/windowManager';
 import type { ProjectsResponse } from '@/types/api';
 import { cn } from '@/utils/cn';
 
@@ -12,7 +12,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
   const t = useTranslations();
   const lang = getLangFromUrl();
 
-  const { findWindow } = useWindowManagerStore();
+  const { findWindow } = useOpenWindowsStore();
   const isWindowFullScreen = findWindow(props.windowId)?.isFullscreen;
 
   const card = usePrimaryColor('border');

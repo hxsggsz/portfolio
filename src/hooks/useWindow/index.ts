@@ -1,6 +1,9 @@
 import { useRef, useState } from 'react';
 import type { Rnd } from 'react-rnd';
 
+import { useOpenWindowsStore } from '@/stores/windowManager';
+import type { WindowTypes } from '@/types/windows';
+
 export function useWindow() {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -11,8 +14,16 @@ export function useWindow() {
     y: window.innerHeight / 6,
   });
 
-  function toggleOpen(open?: boolean) {
-    setIsOpen((prev) => open ?? !prev);
+  const { addWindow, removeWindow } = useOpenWindowsStore();
+
+  function openWindow(newWindow: WindowTypes) {
+    addWindow(newWindow);
+    setIsOpen(true);
+  }
+
+  function closeWindow(windowName: string) {
+    removeWindow(windowName);
+    setIsOpen(false);
   }
 
   function toggleFullscreen(fullscreen?: boolean) {
@@ -38,7 +49,8 @@ export function useWindow() {
       positionRef,
     },
     isOpen,
-    toggleOpen,
+    openWindow,
+    closeWindow,
     isFullScreen,
     toggleFullscreen,
   };

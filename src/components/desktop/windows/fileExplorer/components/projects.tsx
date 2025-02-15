@@ -1,5 +1,5 @@
 import { ProjectCard } from '@/components/cards/project';
-import { useWindowManagerStore } from '@/stores/windowManager';
+import { useOpenWindowsStore } from '@/stores/windowManager';
 import type { ProjectsResponse } from '@/types/api';
 import { cn } from '@/utils/cn';
 
@@ -8,7 +8,7 @@ interface ProjectsProps {
   projects: ProjectsResponse[];
 }
 export const Projects = (props: ProjectsProps) => {
-  const { findWindow } = useWindowManagerStore();
+  const { findWindow } = useOpenWindowsStore();
   const isWindowFullScreen = findWindow(props.windowId)?.isFullscreen;
 
   const renderProjects = () =>

@@ -17,6 +17,8 @@ export const Experiences = (props: ExperiencesProps) => {
 
   const t = useTranslations();
 
+  const windowName = t('exp.title');
+
   const renderStepper = () =>
     props.experiences.map((exp, index) => {
       // eslint-disable-next-line no-plusplus, no-param-reassign
@@ -27,9 +29,11 @@ export const Experiences = (props: ExperiencesProps) => {
   return (
     <>
       <DesktopItems
-        name={t('exp.title')}
+        name={windowName}
         icon={folder.src}
-        onDoubleClick={() => windowRef.current?.toggleOpen()}
+        onDoubleClick={() =>
+          windowRef.current?.openWindow({ name: windowName, image: folder.src })
+        }
       />
 
       <Window name={t('exp.title')} ref={windowRef}>

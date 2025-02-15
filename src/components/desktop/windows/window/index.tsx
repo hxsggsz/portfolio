@@ -5,7 +5,6 @@ import { Rnd } from 'react-rnd';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import useSizeScreen from '@/hooks/useSizeScreen';
 import { useWindow } from '@/hooks/useWindow';
-import { useWindowManagerStore } from '@/stores/windowManager';
 import type { UseImperativeWindowHandler } from '@/types/windows';
 import { cn } from '@/utils/cn';
 
@@ -18,12 +17,11 @@ interface WindowProps {
 
 export const Window = forwardRef<UseImperativeWindowHandler, WindowProps>(
   (props, ref) => {
-    const windowManager = useWindowManagerStore();
-
     const {
       refs: { positionRef, rndRef },
       isOpen,
-      toggleOpen,
+      openWindow,
+      closeWindow,
       isFullScreen,
       toggleFullscreen,
     } = useWindow();
@@ -35,7 +33,7 @@ export const Window = forwardRef<UseImperativeWindowHandler, WindowProps>(
     const header = usePrimaryColor('bg', 'border');
 
     useImperativeHandle(ref, () => ({
-      toggleOpen,
+      openWindow,
     }));
 
     useEffect(() => {
@@ -73,8 +71,8 @@ export const Window = forwardRef<UseImperativeWindowHandler, WindowProps>(
 
             <HeaderButtons
               isFullScreen={isFullScreen}
-              toggleOpen={toggleOpen}
               updateFullscreen={toggleFullscreen}
+              closeWindow={() => closeWindow(props.name)}
             />
           </header>
 
