@@ -17,7 +17,7 @@ export const ptTranslation = {
   'abt-me.nav': 'Sobre mim',
   'abt-me.occupation': 'Programador FullStack',
   'res.title': 'Meu Currículo',
-  'exp.title': 'Experiencias',
+  'exp.title': 'Experiências',
   'disc.placeholder': 'Conversar em',
   'disc.rooms.title': 'Canais de texto',
 };

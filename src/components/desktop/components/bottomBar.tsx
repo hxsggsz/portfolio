@@ -20,7 +20,7 @@ export const BottonBar = () => {
   }
 
   const renderApp = () =>
-    windowManager.windows.map((window) => (
+    windowManager.bottomBarWindows.map((window) => (
       <div className="relative" key={window.id}>
         <motion.button
           key={window.id}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 
-import { Languages } from '@/components/desktop/components/windows/fileExplorer/components/languages';
+import { Languages } from '@/components/desktop/windows/fileExplorer/components/languages';
 import { Window } from '@/components/desktop/windows/window/';
 import { usePrimaryColor } from '@/hooks/usePrimaryColor';
 import { useTranslations } from '@/i18n/utils';

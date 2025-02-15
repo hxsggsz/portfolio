@@ -1,8 +1,7 @@
 import github from '@/assets/images/github.png';
 import linkedin from '@/assets/images/linkedin.svg';
+import { DesktopItems } from '@/components/desktop/icons/desktop-icon';
 import { GITHUB_LINK, LINKEDIN_LINK } from '@/constants/resume';
-
-import { DesktopItems } from './desktop-items';
 
 export const SocialMedia = () => {
   return (

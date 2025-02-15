@@ -1,4 +1,8 @@
-export type WindowNames = 'Settings' | 'File Explorer' | 'Discord';
+export type WindowNames =
+  | 'Experiences'
+  | 'Settings'
+  | 'File Explorer'
+  | 'Discord';
 
 export interface WindowTypes {
   id: string;
@@ -12,4 +16,8 @@ export interface WindowTypes {
 
 export interface DefaultWindowProps {
   id: string;
+}
+
+export interface UseImperativeWindowHandler {
+  toggleOpen: (open?: boolean) => void;
 }

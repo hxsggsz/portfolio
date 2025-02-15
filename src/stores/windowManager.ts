@@ -8,6 +8,7 @@ import type { WindowTypes } from '@/types/windows';
 
 interface WindowManagerStoreTypes {
   windows: WindowTypes[];
+  bottomBarWindows: WindowTypes[];
   findWindow: (windowId: string) => WindowTypes | undefined;
   handleMainWindow: (windowId: string) => void;
   toggleFullScreen: (windowId: string, open?: boolean) => void;
@@ -18,6 +19,17 @@ interface WindowManagerStoreTypes {
 export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
   (set, get) => ({
     windows: [
+      {
+        id: nanoid(),
+        isOpen: false,
+        isMain: false,
+        isFullscreen: false,
+        isMinimized: false,
+        name: 'Experiences' as const,
+        image: folder.src,
+      },
+    ],
+    bottomBarWindows: [
       {
         id: nanoid(),
         isOpen: false,
@@ -48,7 +60,15 @@ export const useWindowManagerStore = create<WindowManagerStoreTypes>()(
     ],
 
     findWindow(windowId) {
-      return get().windows.find((window) => window.id === windowId);
+      const findWindows = get().windows.find(
+        (window) => window.id === windowId
+      );
+
+      const findBottomWindows = get().bottomBarWindows.find(
+        (window) => window.id === windowId
+      );
+
+      return findBottomWindows ?? findWindows;
     },
 
     toggleFullScreen(windowId, open) {

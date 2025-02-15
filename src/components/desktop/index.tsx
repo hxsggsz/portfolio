@@ -4,18 +4,19 @@ import wallpapperDark from '@/assets/images/wallpapper-dark.png';
 import wallpapperLight from '@/assets/images/wallpapper-light.png';
 import { BottonBar } from '@/components/desktop/components/bottomBar';
 import { Topbar } from '@/components/desktop/components/topbar';
-import { FileExplorer } from '@/components/desktop/components/windows/fileExplorer/fileExplorer';
-import { Settings } from '@/components/desktop/components/windows/settings';
+import { Devto } from '@/components/desktop/icons/devto';
+import { Resume } from '@/components/desktop/icons/resume/';
+import { SocialMedia } from '@/components/desktop/icons/social-media/';
+import { FileExplorer } from '@/components/desktop/windows/fileExplorer/fileExplorer';
+import { Settings } from '@/components/desktop/windows/settings';
 import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { useWindowManagerStore } from '@/stores/windowManager';
 import type { HygraphResponse } from '@/types/api';
 import type { WindowNames } from '@/types/windows';
 
-import { Devto } from './components/devto';
-import { Resume } from './components/resume';
-import { SocialMedia } from './components/social-media';
-import { Discord } from './components/windows/discord/discord';
+import { Experiences } from './icons/experiences';
+import { Discord } from './windows/discord/discord';
 
 interface WindowsTyped {
   name: WindowNames;
@@ -79,6 +80,7 @@ export const Desktop = (props: HygraphResponse) => {
           <Resume />
           <SocialMedia />
           <Devto />
+          <Experiences experiences={props.experiences} />
         </div>
       </div>
 
