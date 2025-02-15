@@ -23,7 +23,13 @@ export const Experiences = (props: ExperiencesProps) => {
     props.experiences.map((exp, index) => {
       // eslint-disable-next-line no-plusplus, no-param-reassign
       const currentStepper = ++index;
-      return <ExperiencesStepper {...exp} currentStepper={currentStepper} />;
+      return (
+        <ExperiencesStepper
+          {...exp}
+          key={exp.title}
+          currentStepper={currentStepper}
+        />
+      );
     });
   return (
     <>
