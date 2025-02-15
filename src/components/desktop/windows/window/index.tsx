@@ -78,7 +78,7 @@ export const Window = forwardRef<UseImperativeWindowHandler, WindowProps>(
 
           <motion.div
             className={cn(
-              'relative h-screen scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto',
+              'relative h-screen p-2 scrollbar scrollbar-track-inherit scrollbar-w-1 overflow-x-hidden flex max-h-fullContent w-full overflow-y-auto',
               thumb.className
             )}
           >

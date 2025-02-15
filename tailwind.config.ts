@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       maxHeight: {
-        fullContent: 'calc(100% - 34px)',
+        fullContent: 'calc(100vh - 34px)',
+        desktop: 'calc(100vh - 108px - 76px)',
       },
       colors: {
         base: 'rgb(var(--base) / <alpha-value>)',

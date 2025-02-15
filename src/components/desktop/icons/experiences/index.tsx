@@ -25,7 +25,6 @@ export const Experiences = (props: ExperiencesProps) => {
       const currentStepper = ++index;
       return <ExperiencesStepper {...exp} currentStepper={currentStepper} />;
     });
-
   return (
     <>
       <DesktopItems

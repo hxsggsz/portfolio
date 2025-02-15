@@ -9,6 +9,7 @@ import { Toast } from '@/components/toast';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import type { HygraphResponse } from '@/types/api';
 
+import { Discord } from './icons/discord';
 import { Experiences } from './icons/experiences';
 
 export const Desktop = (props: HygraphResponse) => {
