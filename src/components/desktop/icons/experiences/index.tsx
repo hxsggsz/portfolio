@@ -35,7 +35,7 @@ export const Experiences = (props: ExperiencesProps) => {
         }
       />
 
-      <Window name={t('exp.title')} ref={windowRef}>
+      <Window name={windowName} ref={windowRef}>
         <div className="scrollbar scrollbar-track-inherit scrollbar-w-1">
           {renderStepper()}
         </div>

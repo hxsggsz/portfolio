@@ -14,6 +14,7 @@ import { Discord } from './icons/discord';
 import { Experiences } from './icons/experiences';
 import { Languages } from './icons/languages';
 import { Settings } from './icons/settings';
+import { Projects } from './windows/fileExplorer/components/projects';
 
 export const Desktop = (props: HygraphResponse) => {
   const { theme } = useThemeMode();
@@ -47,6 +48,7 @@ export const Desktop = (props: HygraphResponse) => {
           <Experiences experiences={props.experiences} />
           <AboutMe aboutMe={props.aboutMe} />
           <Languages languages={props.language} />
+          <Projects projects={props.projects} />
         </div>
       </div>
 
