@@ -12,6 +12,7 @@ import type { HygraphResponse } from '@/types/api';
 import { AboutMe } from './icons/about-me';
 import { Discord } from './icons/discord';
 import { Experiences } from './icons/experiences';
+import { Languages } from './icons/languages';
 import { Settings } from './icons/settings';
 
 export const Desktop = (props: HygraphResponse) => {
@@ -45,6 +46,7 @@ export const Desktop = (props: HygraphResponse) => {
           <Discord discord={props.discords} />
           <Experiences experiences={props.experiences} />
           <AboutMe aboutMe={props.aboutMe} />
+          <Languages languages={props.language} />
         </div>
       </div>
 

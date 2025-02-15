@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import folder from '@/assets/images/folders.png';
+import file from '@/assets/images/files.png';
 import { DesktopItems } from '@/components/desktop/icons/desktop-icon';
 import { ExperiencesStepper } from '@/components/desktop/icons/experiences/components/experiences-stepper';
 import { Window } from '@/components/desktop/windows/window/';
@@ -29,9 +29,9 @@ export const Experiences = (props: ExperiencesProps) => {
     <>
       <DesktopItems
         name={windowName}
-        icon={folder.src}
+        icon={file.src}
         onDoubleClick={() =>
-          windowRef.current?.openWindow({ name: windowName, image: folder.src })
+          windowRef.current?.openWindow({ name: windowName, image: file.src })
         }
       />
 
