@@ -2,7 +2,7 @@ import type { Langs } from '@/types/langs';
 
 export function project(langs: Langs[]) {
   return `
-        projects(locales: ${langs}, first: 100) {
+        projects(orderBy: publishedAt_DESC, locales: ${langs}, first: 100) {
             id
             locale
             name
