@@ -18,11 +18,11 @@ export const BottonBar = () => {
           whileHover={{ y: -4 }}
           transition={{ type: 'tween' }}
           title={`icon of ${window.name}`}
-          className="flex size-14 items-center justify-center rounded-md bg-highlightLow shadow-xl backdrop-blur-sm"
+          className="flex size-14 items-center justify-center rounded-md bg-highlightLow p-2 shadow-xl backdrop-blur-sm"
         >
           <img
-            width={50}
-            height={50}
+            width={100}
+            height={100}
             src={window.image}
             alt={`icon of ${window.name}`}
             className="pointer-events-none select-none"
