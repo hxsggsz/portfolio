@@ -9,9 +9,6 @@ export const ProjectCard = (props: ProjectCardProps) => {
   const t = useTranslations();
   const lang = getLangFromUrl();
 
-  // const { findWindow } = useOpenWindowsStore();
-  // const isWindowFullScreen = findWindow(props.windowId)?.isFullscreen;
-
   const card = usePrimaryColor('border');
   const button = usePrimaryColor('bg', 'active');
 
@@ -19,7 +16,6 @@ export const ProjectCard = (props: ProjectCardProps) => {
     <div
       className={cn(
         'items-start w-full gap-2 md:h-56 m-2 rounded-md p-4 flex flex-col md:items-stretch md:flex-row',
-        // !isWindowFullScreen && 'w-full',
         card.className
       )}
     >
@@ -35,12 +31,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
             {props.name}
           </p>
 
-          <p
-            className={cn(
-              'line-clamp-4 w-[342px] text-ellipsis text-sm'
-              // !isWindowFullScreen && 'w-full'
-            )}
-          >
+          <p className={cn('line-clamp-4 text-ellipsis text-sm')}>
             {props.description}
           </p>
         </div>
