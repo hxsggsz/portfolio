@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,10 +14,10 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: false,
-      strategy: 'pathname'
-    }
+      strategy: 'pathname',
+    },
   },
   output: 'server',
   integrations: [react(), tailwind({}), sitemap(), robotsTxt()],
-  adapter: vercel()
+  adapter: vercel(),
 });
