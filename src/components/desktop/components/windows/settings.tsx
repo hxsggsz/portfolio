@@ -1,4 +1,4 @@
-import { CloudArrowUp, ImageBroken } from '@phosphor-icons/react';
+import { CloudArrowUp } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 import { nanoid } from 'nanoid';
 
@@ -102,37 +102,6 @@ export const Settings = (props: DefaultWindowProps) => {
       </h1>
 
       <div className="flex gap-2">{renderPrimaryColors()}</div>
-
-      <h1 className="mt-1 text-lg font-semibold text-text">
-        {t('settings.image.title')}
-      </h1>
-
-      <div className="flex items-center gap-2">
-        <motion.label
-          whileHover={{ y: -4 }}
-          transition={{ type: 'tween' }}
-          className={cn(
-            'my-2 cursor-pointer p-2 rounded-lg text-sm font-semibold text-text',
-            buttonAndInput.className
-          )}
-        >
-          {t('settings.image.label')}
-          <input type="file" className="hidden" onChange={handleUploadImage} />
-        </motion.label>
-
-        <motion.button
-          whileHover={{ y: -4 }}
-          transition={{ type: 'tween' }}
-          className={cn(
-            'p-2 h-full text-sm text-text rounded-xl',
-            buttonAndInput.className
-          )}
-          onClick={removeCustomBackground}
-          title={t('settings.image.delete')}
-        >
-          <ImageBroken size={24} />
-        </motion.button>
-      </div>
     </div>
   );
 
