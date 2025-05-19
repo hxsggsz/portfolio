@@ -115,7 +115,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
         onClick={clearCard}
         layoutId={cardIdOpen}
         className={cn(
-          'lg:flex hidden items-center gap-2 rounded-md cursor-pointer p-4 flex-col w-[90%]  md:items-stretch md:flex-row absolute bg-base md:h-min left-1/2 top-1/2 !-translate-x-1/2 !-translate-y-1/2',
+          'flex items-center gap-2 rounded-md cursor-pointer p-4 flex-col w-[90%]  md:items-stretch md:flex-row absolute bg-base md:h-min left-1/2 top-1/2 !-translate-x-1/2 !-translate-y-1/2',
           card.className
         )}
       >
