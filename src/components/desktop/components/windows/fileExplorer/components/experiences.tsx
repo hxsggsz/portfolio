@@ -8,7 +8,7 @@ interface ExperiencesProps {
 
 export const Experiences = (props: ExperiencesProps) => {
   const renderStepper = () =>
-    props.experiences.map((exp, index) => (
+    props.experiences.reverse().map((exp, index) => (
       // eslint-disable-next-line no-plusplus, no-param-reassign
       <ExperiencesStepper {...exp} currentStepper={++index} />
     ));

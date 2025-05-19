@@ -31,8 +31,7 @@ export const Settings = (props: DefaultWindowProps) => {
   const buttonAndInput = usePrimaryColor('bg', 'border', 'focus-within');
   const dragAndDrop = usePrimaryColor('bg');
 
-  const { isDragging, handlers, handleUploadImage, removeCustomBackground } =
-    useUploadImage();
+  const { isDragging, handlers } = useUploadImage();
 
   const renderPrimaryColors = () =>
     primaryColorsOptions.map((color) => (

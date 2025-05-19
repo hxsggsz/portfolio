@@ -19,7 +19,7 @@ export const Projects = (props: ProjectsProps) => {
   return (
     <div
       className={cn(
-        'flex w-full flex-wrap overflow-y-auto scrollbar scrollbar-track-inherit scrollbar-w-1',
+        'flex w-full gap-2 px-2 flex-wrap overflow-y-auto scrollbar scrollbar-track-inherit scrollbar-w-1',
         !isWindowFullScreen && 'h-full'
       )}
     >
